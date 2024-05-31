@@ -4,7 +4,7 @@ import Footer from "../CommonRoute/Footer/Footer";
 
 const Layout = () => {
   return (
-    <div>
+    <div className="ubuntu">
       <Header />
       <Outlet />
       <Footer />
