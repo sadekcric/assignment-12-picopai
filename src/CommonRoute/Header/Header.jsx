@@ -67,16 +67,16 @@ const Header = () => {
                   <li className="-translate-x-20">
                     <button
                       onClick={() => setAvailableCoin(false)}
-                      className={`bg-[#000] px-6 -translate-x-[108px] rounded-lg py-3 text-primary text-xl ${
+                      className={`bg-[#000] px-6 -translate-x-[108px] rounded-lg py-[9px] text-primary border-2 border-secondary text-xl ${
                         availableCoin
                           ? "scale-100 translate-y-0 z-10 opacity-100 duration-1000 transition"
                           : "scale-0 translate-y-3 -z-10 opacity-0 duration-700 transition"
-                      } flex items-center gap-1`}
+                      } flex items-center gap-2`}
                     >
                       <span className="text-lg font-extrabold ">
-                        <img src={coin} className="w-6" alt="" />
+                        <img src={coin} className="w-7" alt="" />
                       </span>
-                      <span className="text-sm font-bold text-[#FEC638] ">185</span>
+                      <span className=" font-bold text-[#FEC638] ">1850</span>
                     </button>
                   </li>
 
@@ -126,38 +126,83 @@ const Header = () => {
 
           {/* For mobile and tab  */}
           <div
-            className={`${
-              active
+            className={`
+            ${
+              active && !user
                 ? "lg:hidden absolute translate-y-32 duration-1000 opacity-100 transition right-10 py-10 pl-8 pr-16 bg-primary rounded-b-lg"
-                : "lg:hidden absolute -translate-y-72 duration-1000 opacity-0 transition right-10 py-10 pl-8 pr-16 bg-primary rounded-b-lg"
-            }`}
+                : "lg:hidden absolute -translate-y-72 duration-1000 opacity-0 transition py-5 right-10 pl-8 pr-16 bg-primary rounded-b-lg"
+            }
+
+            ${
+              active && user
+                ? "lg:hidden absolute translate-y-36 duration-1000 opacity-100 transition  bg-primary rounded-b-lg"
+                : "lg:hidden absolute -translate-y-72 duration-1000 opacity-0 transition py-5 right-10 pl-8 pr-16 bg-primary rounded-b-lg"
+            }
+            
+            `}
           >
             <ul className="space-y-8">
-              <li>
-                <a
-                  href="https://www.youtube.com/"
-                  target="blank"
-                  className={`bg-secondary rounded   text-primary px-4 py-3  text-[15px] border-secondary border-2`}
-                >
-                  <button className="font-semibold w-full">Watch Demo</button>
-                </a>
-              </li>
+              {user ? (
+                <>
+                  <li className="bg-[#000]  w-full inline-block text-sm px-6 rounded-lg py-2 text-primary border-2 border-secondary">
+                    <button onClick={() => setAvailableCoin(false)} className={`flex items-center gap-2`}>
+                      <span className="text-lg font-extrabold ">
+                        <img src={coin} className="w-7" alt="" />
+                      </span>
+                      <span className=" font-bold text-[#FEC638] ">1850</span>
+                    </button>
+                  </li>
 
-              <li>
-                <NavLink to="/register" className={activeLink}>
-                  <button className="   font-semibold  w-full">Sign up</button>
-                </NavLink>
-              </li>
+                  <li>
+                    <NavLink to="/dashboard/user" className={userActiveLink}>
+                      <button>Dashboard</button>
+                    </NavLink>
+                  </li>
 
-              <li>
-                <NavLink to="/login" className={activeLink}>
-                  <button className="font-semibold w-full">Log in</button>
-                </NavLink>
-              </li>
+                  <li>
+                    <button
+                      onClick={() => {
+                        logout().then(() => navigate("/"));
+                      }}
+                      className={`bg-secondary rounded  text-primary px-6 py-[8px] font-semibold w-full inline-block border-secondary border-2`}
+                    >
+                      {" "}
+                      log out
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <a
+                      href="https://www.youtube.com/"
+                      target="blank"
+                      className={`bg-secondary rounded   text-primary px-4 py-3  text-[15px] border-secondary border-2`}
+                    >
+                      <button className="font-semibold w-full">Watch Demo</button>
+                    </a>
+                  </li>
+
+                  <li>
+                    <NavLink to="/register" className={activeLink}>
+                      <button className="   font-semibold  w-full">Sign up</button>
+                    </NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink to="/login" className={activeLink}>
+                      <button className="font-semibold w-full">Log in</button>
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
 
           <div className="flex items-center max-lg:ml-auto space-x-6 lg:hidden">
+            <div>
+              <img src={user.photoURL} className="w-12 h-12 border-4 border-secondary rounded-full" alt="" />
+            </div>
             <div onClick={() => setActive(!active)} className="text-3xl">
               <IoMenuSharp />
             </div>
