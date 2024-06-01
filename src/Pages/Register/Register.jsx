@@ -3,9 +3,25 @@ import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import useUploadImage from "../../Hooks/useUploadImage";
 
 const Register = () => {
   const [viewPass, setViewPss] = useState(false);
+  const uploadImage = useUploadImage();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    const fileImage = { image: data.image[0] };
+    const photo = await uploadImage(fileImage);
+    console.log(photo);
+  };
+
   return (
     <div>
       <div
@@ -18,61 +34,65 @@ const Register = () => {
         }}
       >
         <div className="max-w-md  w-full mx-auto">
-          <form className="bg-opacity-70  bg-[#fff] rounded-2xl p-6 shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)]">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="bg-opacity-70  bg-[#fff] rounded-2xl p-6 shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)]"
+          >
             <div className="mb-10">
               <h3 className="text-3xl font-extrabold">Sign up</h3>
             </div>
 
             <div>
-              <div className="relative flex items-center">
+              <div className="relative flex flex-col items-center">
                 <input
-                  name="name"
                   type="text"
-                  required
+                  {...register("name", { required: true })}
                   className="bg-transparent w-full text-sm border-b border-[#333] px-2 py-3 outline-none placeholder:text-[#333]"
                   placeholder="Enter name"
                 />
+                {errors.name && <span className="text-[#ff0000] font-semibold">This field is required</span>}
               </div>
             </div>
 
             <div className="mt-8 flex items-center gap-3">
               <div className="flex-1">
-                <div className="relative flex items-center">
+                <div className="relative flex flex-col items-center">
                   <input
-                    name="email"
+                    {...register("email", { required: true })}
                     type="email"
-                    required
                     className="bg-transparent w-full text-sm border-b border-[#333] px-2 py-3 outline-none placeholder:text-[#333]"
                     placeholder="Enter email"
                   />
+                  {errors.email && <span className="text-[#ff0000] block font-semibold">This field is required</span>}
                 </div>
               </div>
 
               <div className="flex-1">
-                <div className="relative flex items-center">
+                <div className="relative flex flex-col items-center">
                   <select
+                    {...register("role", { required: true })}
                     name="role"
-                    required
                     className="bg-transparent w-full text-sm border-b border-[#333] px-2 py-3 outline-none placeholder:text-[#333]"
                   >
                     <option value="">Select role</option>
                     <option value="Worker">Worker</option>
                     <option value="Task Creator">Task Creator</option>
                   </select>
+                  {errors.role && <span className="text-[#ff0000] font-semibold">This field is required</span>}
                 </div>
               </div>
             </div>
 
             <div className="mt-8 flex items-center gap-3">
               <div className="flex-1">
-                <div className="relative flex items-center">
+                <div className="relative flex flex-col items-center">
                   <input
-                    name="password"
+                    {...register("password", { required: true })}
                     type={viewPass ? "text" : "password"}
-                    required
                     className="bg-transparent w-full text-sm border-b border-[#333] px-2 py-3 outline-none placeholder:text-[#333]"
                     placeholder="Enter password"
                   />
+
                   <div className="absolute top-1/2 right-3 -translate-y-[50%] text-lg">
                     {viewPass ? (
                       <FaRegEye onClick={() => setViewPss(!viewPass)} />
@@ -89,15 +109,22 @@ const Register = () => {
                     Enter Photo
                   </div>
                   <button className="opacity-0 z-10">
-                    <input name="name" type="file" required className=" block w-full px-10 cursor-pointer py-2" />
+                    <input
+                      {...register("image", { required: true })}
+                      type="file"
+                      required
+                      className=" block w-full px-10 cursor-pointer py-2"
+                    />
                   </button>
                 </div>
               </div>
             </div>
+            {errors.password && <span className="text-[#ff0000] font-semibold">This field is required</span>}
+            {errors.image && <span className="text-[#ff0000] font-semibold">This field is required</span>}
 
             <div className="mt-10">
               <button
-                type="button"
+                type="submit"
                 className="w-full py-2.5 px-4 text-sm font-semibold rounded-full text-[#fff] bg-[#333] hover:bg-[#222] focus:outline-none"
               >
                 Sign up
