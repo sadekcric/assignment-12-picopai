@@ -1,0 +1,38 @@
+[
+  {
+      "id": 1,
+      "title": "User-Friendly Interface",
+      "description": "Our platform is designed with simplicity in mind. Easily navigate through tasks, track your earnings, and manage your profile with our intuitive user interface.",
+      "img": "https://i.ibb.co/2kbbMzR/4946392.png"
+  },
+  {
+      "id": 2,
+      "title": "Variety of Tasks",
+      "description": "Choose from a wide range of micro-tasks, including surveys, data entry, content moderation, and more. With new tasks added regularly, there’s always something to do.",
+      "img": "https://i.ibb.co/KqQ5sPW/task-document-logo-design-template-free-vector.jpg"
+  },
+  {
+      "id": 3,
+      "title": "Flexible Work Hours",
+      "description": "Work whenever and wherever you want. PicoPay allows you to complete tasks at your own pace, fitting perfectly into your busy schedule.",
+      "img": "https://i.ibb.co/Rbncrn0/istockphoto-1426780630-612x612.jpg"
+  },
+  {
+      "id": 4,
+      "title": "Secure Payments",
+      "description": "Your earnings are safe with PicoPay. We offer secure and timely payouts through various payment methods, ensuring you get paid on time, every time.",
+      "img": "https://i.ibb.co/sjrHYbF/100-secure-logo-secure-badge-design-secure-vector-icons-secure-payments-526569-740.jpg"
+  },
+  {
+      "id": 5,
+      "title": "Rewarding System",
+      "description": "Earn badges, unlock achievements, and participate in special events to earn extra rewards. Our gamified system makes completing tasks more engaging and fun.",
+      "img": "https://i.ibb.co/0VpjHJX/reward-transparent-60306.png"
+  },
+  {
+      "id": 6,
+      "title": "Community Support",
+      "description": "Join a community of like-minded individuals. Get help, share tips, and connect with other taskers through our community forums and social media channels.",
+      "img": "https://i.ibb.co/cFx3R20/icon-illustration-concept-family-care-600nw-1077028331.webp"
+  }
+]

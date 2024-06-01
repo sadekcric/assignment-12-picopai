@@ -5,6 +5,7 @@ export default {
     colors: {
       primary: "#153448",
       secondary: "#DFD0B8",
+      regular: "#15F5BA",
     },
   },
   plugins: [],

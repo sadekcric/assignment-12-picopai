@@ -7,3 +7,8 @@
 .ubuntu {
   font-family: "Ubuntu", sans-serif;
 }
+
+.btn-shadow:hover {
+  box-shadow: 0px 0px 50px #dfd0b8;
+  transition: 0.5s;
+}
