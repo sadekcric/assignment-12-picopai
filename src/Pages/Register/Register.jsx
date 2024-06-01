@@ -1,14 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import useUploadImage from "../../Hooks/useUploadImage";
+import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
+import useGoogleLogin from "../../Component/useGoogleLogin";
 
 const Register = () => {
   const [viewPass, setViewPss] = useState(false);
   const uploadImage = useUploadImage();
+  const { loader, setLoader, firebaseRegister, logout } = useAuth();
+  const navigate = useNavigate();
+  const handleLogin = useGoogleLogin();
 
   const {
     register,
@@ -16,10 +23,54 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
+  if (loader) {
+    return <>Loader....</>;
+  }
+
   const onSubmit = async (data) => {
     const fileImage = { image: data.image[0] };
-    const photo = await uploadImage(fileImage);
+    const uploadedPhotoFile = await uploadImage(fileImage);
+    const photo = uploadedPhotoFile?.data?.data?.display_url;
+    console.log(uploadedPhotoFile);
     console.log(photo);
+
+    firebaseRegister(data.email, data.password)
+      .then(({ user }) => {
+        updateProfile(user, {
+          displayName: data.name,
+          photoURL: photo,
+        })
+          .then(() => {
+            logout().then(() => {});
+            navigate("/login");
+            Swal.fire({
+              icon: "success",
+              title: "Successfully Registered!",
+              showConfirmButton: false,
+              timer: 3000,
+            });
+          })
+          .catch((err) => {
+            setLoader(false);
+            Swal.fire({
+              icon: "error",
+              title: err.message,
+              showConfirmButton: false,
+              timer: 3000,
+            });
+          });
+
+        console.log(user);
+      })
+      .catch((err) => {
+        setLoader(false);
+        Swal.fire({
+          icon: "error",
+          title: err.message,
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      });
   };
 
   return (
@@ -139,7 +190,7 @@ const Register = () => {
 
             <hr className="my-6 border-gray-500" />
             <div className="space-x-8 flex justify-center">
-              <button type="button" className="border-none outline-none">
+              <button onClick={() => handleLogin()} type="button" className="border-none outline-none">
                 <div className="flex items-center gap-2 font-semibold bg-[#fff] px-4 py-3 rounded-md text-[#333] text-lg bg-opacity-70 shadow-xl">
                   <FcGoogle className="text-xl" />
                   <span>Google Login</span>

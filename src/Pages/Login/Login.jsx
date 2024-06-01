@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import useGoogleLogin from "./../../Component/useGoogleLogin";
 
 const Login = () => {
   const [viewPass, setViewPss] = useState(false);
+  const googleLogin = useGoogleLogin();
 
   return (
     <div>
@@ -67,7 +69,7 @@ const Login = () => {
             </div>
             <hr className="my-6 border-gray-500" />
             <div className="space-x-8 flex justify-center">
-              <button type="button" className="border-none outline-none">
+              <button onClick={() => googleLogin()} type="button" className="border-none outline-none">
                 <div className="flex items-center gap-2 font-semibold bg-[#fff] px-4 py-3 rounded-md text-[#333] text-lg bg-opacity-70 shadow-xl">
                   <FcGoogle className="text-xl" />
                   <span>Google Login</span>
