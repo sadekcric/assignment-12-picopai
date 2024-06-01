@@ -12,7 +12,7 @@ const Header = () => {
       : "px-4 py-3 text-[15px] rounded border-2 border-secondary text-secondary ";
 
   return (
-    <div>
+    <div className="sticky top-0 z-50">
       <header className="flex shadow-md py-4 px-4 sm:px-10 font-[sans-serif] min-h-[80px] tracking-wide relative z-50 bg-primary text-secondary ">
         <div className="flex flex-wrap items-center gap-5 w-full container mx-auto">
           {/* Logo */}

@@ -26,9 +26,22 @@ const Testimonial = () => {
       <SectionTitle title={"Testimonials"} description={"Insights from Those Who Benefit from Our Platform"} />
 
       {/* for Pc */}
-      <div className="overflow-hidden container mx-auto hidden lg:block">
+      <div className=" container mx-auto hidden lg:block">
         <>
-          <Swiper slidesPerView={4} spaceBetween={30} centeredSlides={true} freeMode={true} modules={[FreeMode]} className="mySwiper">
+          <Swiper slidesPerView={4} spaceBetween={10} centeredSlides={true} freeMode={true} modules={[FreeMode]} className="mySwiper">
+            {reviews.map((review) => (
+              <SwiperSlide key={review.id}>
+                <TestimonialCart img={review.img} name={review.name} comment={review.comment} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </>
+      </div>
+
+      {/* for medium device */}
+      <div className=" container mx-auto hidden md:block lg:hidden">
+        <>
+          <Swiper slidesPerView={3} spaceBetween={10} centeredSlides={true} freeMode={true} modules={[FreeMode]} className="mySwiper">
             {reviews.map((review) => (
               <SwiperSlide key={review.id}>
                 <TestimonialCart img={review.img} name={review.name} comment={review.comment} />
@@ -39,9 +52,9 @@ const Testimonial = () => {
       </div>
 
       {/* for mobile */}
-      <div className="overflow-hidden container mx-auto lg:hidden">
+      <div className=" container mx-auto md:hidden">
         <>
-          <Swiper slidesPerView={1} spaceBetween={30} freeMode={true} modules={[FreeMode]} className="mySwiper">
+          <Swiper slidesPerView={1} centeredSlides={true} freeMode={true} modules={[FreeMode]} className="mySwiper">
             {reviews.map((review) => (
               <SwiperSlide key={review.id}>
                 <TestimonialCart img={review.img} name={review.name} comment={review.comment} />
