@@ -17,7 +17,6 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true);
   const provider = new GoogleAuthProvider();
-  const axiosPublic = useAxiosPublic();
 
   const firebaseRegister = (email, password) => {
     setLoader(true);
@@ -41,11 +40,6 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-
-      // if(currentUser){
-      //   const token = axiosPublic.get(``)
-      //   localStorage.setItem("token", )
-      // }
       setLoader(false);
     });
 

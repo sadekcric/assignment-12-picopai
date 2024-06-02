@@ -12,6 +12,9 @@ import AddNewTask from "../Dashboard/TaskCreator/AddNewTask";
 import MyTask from "../Dashboard/TaskCreator/MyTask";
 import PurchaseCoin from "../Dashboard/TaskCreator/PurchaseCoin";
 import PaymentHistory from "../Dashboard/TaskCreator/PaymentHistory";
+import WarkerHome from "./../Dashboard/Worker/WarkerHome";
+import TaskList from "../Dashboard/Worker/TaskList";
+import MySubmission from "./../Dashboard/Worker/MySubmission";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +71,18 @@ const router = createBrowserRouter([
       {
         path: "payment-history",
         element: <PaymentHistory />,
+      },
+      {
+        path: "worker-home",
+        element: <WarkerHome />,
+      },
+      {
+        path: "worker-tasklist",
+        element: <TaskList />,
+      },
+      {
+        path: "my-submission",
+        element: <MySubmission />,
       },
     ],
   },

@@ -19,7 +19,6 @@ const Testimonial = () => {
         setReviews(data);
       });
   }, []);
-  console.log(reviews);
 
   return (
     <section>

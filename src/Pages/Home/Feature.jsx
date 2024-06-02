@@ -10,7 +10,6 @@ const Feature = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(features);
   return (
     <section>
       <SectionTitle title={"Features"} description={" Enhancing your micro-tasking experience efficiently."} />

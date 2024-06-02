@@ -1,6 +1,10 @@
 import { NavLink } from "react-router-dom";
 import Logo from "../../Component/Logo";
 import { IoHome } from "react-icons/io5";
+import { MdCreateNewFolder } from "react-icons/md";
+import { RiTaskFill } from "react-icons/ri";
+import { FaAddressCard } from "react-icons/fa";
+import { RiFolderHistoryFill } from "react-icons/ri";
 
 const TaskCreator = () => {
   const activeNav = ({ isActive }) => (isActive ? "text-regular" : "text-secondary");
@@ -18,7 +22,7 @@ const TaskCreator = () => {
                 <span>
                   <IoHome />
                 </span>
-                <span>Task creator home</span>
+                <span>Your home</span>
               </div>
             </NavLink>
           </div>
@@ -27,7 +31,7 @@ const TaskCreator = () => {
             <NavLink to="/dashboard/add-task" className={activeNav}>
               <div className="flex gap-2 items-center text-lg">
                 <span>
-                  <IoHome />
+                  <MdCreateNewFolder />
                 </span>
                 <span>Add new task</span>
               </div>
@@ -38,7 +42,7 @@ const TaskCreator = () => {
             <NavLink to="/dashboard/my-task" className={activeNav}>
               <div className="flex gap-2 items-center text-lg">
                 <span>
-                  <IoHome />
+                  <RiTaskFill />
                 </span>
                 <span>My task</span>
               </div>
@@ -49,7 +53,7 @@ const TaskCreator = () => {
             <NavLink to="/dashboard/purchase-coin" className={activeNav}>
               <div className="flex gap-2 items-center text-lg">
                 <span>
-                  <IoHome />
+                  <FaAddressCard />
                 </span>
                 <span>Purchase Coin</span>
               </div>
@@ -60,7 +64,7 @@ const TaskCreator = () => {
             <NavLink to="/dashboard/payment-history" className={activeNav}>
               <div className="flex gap-2 items-center text-lg">
                 <span>
-                  <IoHome />
+                  <RiFolderHistoryFill />
                 </span>
                 <span>Payment history</span>
               </div>
