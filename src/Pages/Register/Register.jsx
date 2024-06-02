@@ -9,6 +9,7 @@ import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import useGoogleLogin from "../../Component/useGoogleLogin";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Register = () => {
   const [viewPass, setViewPss] = useState(false);
@@ -16,6 +17,7 @@ const Register = () => {
   const { loader, setLoader, firebaseRegister, logout } = useAuth();
   const navigate = useNavigate();
   const handleLogin = useGoogleLogin();
+  const axiosPublic = useAxiosPublic();
 
   const {
     register,
@@ -28,11 +30,20 @@ const Register = () => {
   }
 
   const onSubmit = async (data) => {
+    // for Image Upload by imgbb
     const fileImage = { image: data.image[0] };
     const uploadedPhotoFile = await uploadImage(fileImage);
     const photo = uploadedPhotoFile?.data?.data?.display_url;
-    console.log(uploadedPhotoFile);
-    console.log(photo);
+
+    // User Information
+    const name = data.name;
+    const email = data.email;
+    const password = data.password;
+    const role = data.role;
+    const coin = data.role === "Worker" ? 10 : 50;
+
+    const userInfo = { name, email, password, role, coin, photo };
+    console.log(userInfo);
 
     firebaseRegister(data.email, data.password)
       .then(({ user }) => {
@@ -41,6 +52,19 @@ const Register = () => {
           photoURL: photo,
         })
           .then(() => {
+            axiosPublic
+              .post("/users", userInfo)
+              .then((res) => console.log(res.data))
+              .catch((err) => {
+                setLoader(false);
+                Swal.fire({
+                  icon: "error",
+                  title: err.message,
+                  showConfirmButton: false,
+                  timer: 3000,
+                });
+              });
+
             logout().then(() => {});
             navigate("/login");
             Swal.fire({

@@ -44,7 +44,7 @@ const Header = () => {
               {user ? (
                 <>
                   <li className="-translate-x-24">
-                    <NavLink to="/dashboard/user" className={userActiveLink}>
+                    <NavLink to="/dashboard/task-creator-home" className={userActiveLink}>
                       <button>Dashboard</button>
                     </NavLink>
                   </li>
@@ -81,7 +81,7 @@ const Header = () => {
                   </li>
 
                   <li className="-translate-x-24">
-                    <img src={user.photoURL} className="w-12 h-12 border-4 border-secondary rounded-full -translate-x-20" alt="" />
+                    <img src={user?.photoURL} className="w-12 h-12 border-4 border-secondary rounded-full -translate-x-20" alt="" />
                   </li>
 
                   <li>
@@ -200,9 +200,11 @@ const Header = () => {
           </div>
 
           <div className="flex items-center max-lg:ml-auto space-x-6 lg:hidden">
-            <div>
-              <img src={user.photoURL} className="w-12 h-12 border-4 border-secondary rounded-full" alt="" />
-            </div>
+            {user && (
+              <div>
+                <img src={user?.photoURL} className="w-12 h-12 border-4 border-secondary rounded-full" alt="" />
+              </div>
+            )}
             <div onClick={() => setActive(!active)} className="text-3xl">
               <IoMenuSharp />
             </div>
