@@ -29,8 +29,8 @@ const Register = () => {
     return (
       <div className="flex items-center justify-center h-screen">
         <div className="relative">
-          <div className="h-24 w-24 rounded-full border-t-8 border-b-8 border-secondary"></div>
-          <div className="absolute top-0 left-0 h-24 w-24 rounded-full border-t-8 border-b-8 border-primary animate-spin"></div>
+          <div className="h-24 w-24 rounded-full border-t-8 border-b-8 border-customSecondary"></div>
+          <div className="absolute top-0 left-0 h-24 w-24 rounded-full border-t-8 border-b-8 border-customPrimary animate-spin"></div>
         </div>
       </div>
     );
@@ -132,8 +132,8 @@ const Register = () => {
                   className="bg-transparent w-full text-sm border-b border-[#333] px-2 py-3 outline-none placeholder:text-[#333]"
                   placeholder="Enter name"
                 />
-                {errors.name && <span className="text-[#ff0000] font-semibold">This field is required</span>}
               </div>
+              {errors.name && <span className="text-[#ff0000]">This field is required</span>}
             </div>
 
             <div className="mt-8 flex items-center gap-3">
@@ -145,8 +145,8 @@ const Register = () => {
                     className="bg-transparent w-full text-sm border-b border-[#333] px-2 py-3 outline-none placeholder:text-[#333]"
                     placeholder="Enter email"
                   />
-                  {errors.email && <span className="text-[#ff0000] block font-semibold">This field is required</span>}
                 </div>
+                {errors.email && <span className="text-[#ff0000] block ">This field is required</span>}
               </div>
 
               <div className="flex-1">
@@ -160,8 +160,8 @@ const Register = () => {
                     <option value="Worker">Worker</option>
                     <option value="Task Creator">Task Creator</option>
                   </select>
-                  {errors.role && <span className="text-[#ff0000] font-semibold">This field is required</span>}
                 </div>
+                {errors.role && <span className="text-[#ff0000] ">This field is required</span>}
               </div>
             </div>
 
@@ -182,12 +182,13 @@ const Register = () => {
                       <FaRegEyeSlash onClick={() => setViewPss(!viewPass)} />
                     )}
                   </div>
+                  {errors.password && <span className="text-[#ff0000] ">This field is required</span>}
                 </div>
               </div>
 
               <div className="flex-1">
                 <div className="relative">
-                  <div className="absolute  top-0  left-0 w-full bg-[#fff]  py-3 border-b border-[#333] text-[#333] text-center font-semibold text-sm px-2">
+                  <div className="absolute  top-0  left-0 w-full bg-transparent  py-3 border-b border-[#333] text-[#333] text-center font-semibold text-sm px-2">
                     Enter Photo
                   </div>
                   <button className="opacity-0 z-10">
@@ -198,11 +199,10 @@ const Register = () => {
                       className=" block w-full px-10 cursor-pointer py-2"
                     />
                   </button>
+                  {errors.image && <span className="text-[#ff0000]">This field is required</span>}
                 </div>
               </div>
             </div>
-            {errors.password && <span className="text-[#ff0000] font-semibold">This field is required</span>}
-            {errors.image && <span className="text-[#ff0000] font-semibold">This field is required</span>}
 
             <div className="mt-10">
               <button

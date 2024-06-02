@@ -14,17 +14,17 @@ const Header = () => {
 
   const userActiveLink = ({ isActive }) =>
     isActive
-      ? "text-primary py-3 rounded-lg px-6 border-2 bg-secondary border-secondary"
-      : "text-secondary py-3 rounded-lg px-6 border-2 border-secondary";
+      ? "text-customPrimary py-3 rounded-lg px-6 border-2 bg-customSecondary border-customSecondary"
+      : "text-customSecondary py-3 rounded-lg px-6 border-2 border-customSecondary";
 
   const activeLink = ({ isActive }) =>
     isActive
-      ? "bg-secondary rounded   text-primary px-4 py-3  text-[15px] border-secondary border-2"
-      : "px-4 py-3 text-[15px] rounded border-2 border-secondary text-secondary ";
+      ? "bg-customSecondary rounded   text-customPrimary px-4 py-3  text-[15px] border-customSecondary border-2"
+      : "px-4 py-3 text-[15px] rounded border-2 border-customSecondary text-customSecondary ";
 
   return (
     <div className="sticky top-0 z-50">
-      <header className="flex shadow-md py-4 px-4 sm:px-10 font-[sans-serif] min-h-[80px] tracking-wide relative z-50 bg-primary text-secondary ">
+      <header className="flex shadow-md py-4 px-4 sm:px-10 font-[sans-serif] min-h-[80px] tracking-wide relative z-50 bg-customPrimary text-customSecondary ">
         <div className="flex flex-wrap items-center gap-5 w-full container mx-auto">
           {/* Logo */}
           <Link to={"/"}>
@@ -52,7 +52,7 @@ const Header = () => {
                   <li className="-translate-x-20">
                     <button
                       onClick={() => setAvailableCoin(true)}
-                      className={`bg-success min-w-[71px] overflow-hidden px-9 rounded-lg py-3 text-primary text-xl ${
+                      className={`bg-success min-w-[71px] overflow-hidden px-9 rounded-lg py-3 text-customPrimary text-xl ${
                         availableCoin
                           ? "scale-0 -z-10 opacity-0 duration-1000 transition"
                           : "scale-100 z-10 duration-1000 opacity-100 transition"
@@ -67,7 +67,7 @@ const Header = () => {
                   <li className="-translate-x-20">
                     <button
                       onClick={() => setAvailableCoin(false)}
-                      className={`bg-[#000] px-6 -translate-x-[108px] rounded-lg py-[9px] text-primary border-2 border-secondary text-xl ${
+                      className={`bg-[#000] px-6 -translate-x-[108px] rounded-lg py-[9px] text-customPrimary border-2 border-customSecondary text-xl ${
                         availableCoin
                           ? "scale-100 translate-y-0 z-10 opacity-100 duration-1000 transition"
                           : "scale-0 translate-y-3 -z-10 opacity-0 duration-700 transition"
@@ -81,7 +81,7 @@ const Header = () => {
                   </li>
 
                   <li className="-translate-x-24">
-                    <img src={user?.photoURL} className="w-12 h-12 border-4 border-secondary rounded-full -translate-x-20" alt="" />
+                    <img src={user?.photoURL} className="w-12 h-12 border-4 border-customSecondary rounded-full -translate-x-20" alt="" />
                   </li>
 
                   <li>
@@ -89,7 +89,7 @@ const Header = () => {
                       onClick={() => {
                         logout().then(() => navigate("/"));
                       }}
-                      className={`bg-secondary rounded  text-primary px-6 py-[10px] font-semibold  border-secondary -translate-x-20 border-2`}
+                      className={`bg-customSecondary rounded  text-customPrimary px-6 py-[10px] font-semibold  border-customSecondary -translate-x-20 border-2`}
                     >
                       {" "}
                       log out
@@ -102,7 +102,7 @@ const Header = () => {
                     <a
                       href="https://www.youtube.com/"
                       target="blank"
-                      className={`bg-secondary rounded   text-primary px-4 py-3  text-[15px] border-secondary border-2`}
+                      className={`bg-customSecondary rounded   text-customPrimary px-4 py-3  text-[15px] border-customSecondary border-2`}
                     >
                       <button className="font-semibold">Watch Demo</button>
                     </a>
@@ -129,14 +129,14 @@ const Header = () => {
             className={`
             ${
               active && !user
-                ? "lg:hidden absolute translate-y-32 duration-1000 opacity-100 transition right-10 py-10 pl-8 pr-16 bg-primary rounded-b-lg"
-                : "lg:hidden absolute -translate-y-72 duration-1000 opacity-0 transition py-5 right-10 pl-8 pr-16 bg-primary rounded-b-lg"
+                ? "lg:hidden absolute translate-y-32 duration-1000 opacity-100 transition right-10 py-10 pl-8 pr-16 bg-customPrimary rounded-b-lg"
+                : "lg:hidden absolute -translate-y-72 duration-1000 opacity-0 transition py-5 right-10 pl-8 pr-16 bg-customPrimary rounded-b-lg"
             }
 
             ${
               active && user
-                ? "lg:hidden absolute translate-y-36 duration-1000 opacity-100 transition  bg-primary rounded-b-lg"
-                : "lg:hidden absolute -translate-y-72 duration-1000 opacity-0 transition py-5 right-10 pl-8 pr-16 bg-primary rounded-b-lg"
+                ? "lg:hidden absolute translate-y-36 duration-1000 opacity-100 transition  bg-customPrimary rounded-b-lg"
+                : "lg:hidden absolute -translate-y-72 duration-1000 opacity-0 transition py-5 right-10 pl-8 pr-16 bg-customPrimary rounded-b-lg"
             }
             
             `}
@@ -144,7 +144,7 @@ const Header = () => {
             <ul className="space-y-8">
               {user ? (
                 <>
-                  <li className="bg-[#000]  w-full inline-block text-sm px-6 rounded-lg py-2 text-primary border-2 border-secondary">
+                  <li className="bg-[#000]  w-full inline-block text-sm px-6 rounded-lg py-2 text-customPrimary border-2 border-customSecondary">
                     <button onClick={() => setAvailableCoin(false)} className={`flex items-center gap-2`}>
                       <span className="text-lg font-extrabold ">
                         <img src={coin} className="w-7" alt="" />
@@ -164,7 +164,7 @@ const Header = () => {
                       onClick={() => {
                         logout().then(() => navigate("/"));
                       }}
-                      className={`bg-secondary rounded  text-primary px-6 py-[8px] font-semibold w-full inline-block border-secondary border-2`}
+                      className={`bg-customSecondary rounded  text-customPrimary px-6 py-[8px] font-semibold w-full inline-block border-customSecondary border-2`}
                     >
                       {" "}
                       log out
@@ -177,7 +177,7 @@ const Header = () => {
                     <a
                       href="https://www.youtube.com/"
                       target="blank"
-                      className={`bg-secondary rounded   text-primary px-4 py-3  text-[15px] border-secondary border-2`}
+                      className={`bg-customSecondary rounded   text-customPrimary px-4 py-3  text-[15px] border-customSecondary border-2`}
                     >
                       <button className="font-semibold w-full">Watch Demo</button>
                     </a>
@@ -202,7 +202,7 @@ const Header = () => {
           <div className="flex items-center max-lg:ml-auto space-x-6 lg:hidden">
             {user && (
               <div>
-                <img src={user?.photoURL} className="w-12 h-12 border-4 border-secondary rounded-full" alt="" />
+                <img src={user?.photoURL} className="w-12 h-12 border-4 border-customSecondary rounded-full" alt="" />
               </div>
             )}
             <div onClick={() => setActive(!active)} className="text-3xl">

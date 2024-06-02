@@ -6,7 +6,7 @@ const HowToWork = () => {
     <section>
       <SectionTitle title={"How to Work"} description={"Join Picopai: Quick Tasks, Instant Earnings"} />
 
-      <div className="pt-24 pb-28 bg-primary bg-opacity-80 text-[#ffff] overflow-hidden ">
+      <div className="pt-24 pb-28 bg-customPrimary bg-opacity-80 text-[#ffff] overflow-hidden ">
         <div className="">
           <div className="flex flex-col lg:flex-row  lg:gap-0 items-center justify-center">
             <div className="w-full md:w-1/3 p-8">

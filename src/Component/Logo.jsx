@@ -6,7 +6,7 @@ const Logo = () => {
     <>
       {" "}
       <Link to={"/"}>
-        <button className="text-2xl font-semibold ubuntu text-secondary flex gap-2 items-center">
+        <button className="text-2xl font-semibold ubuntu text-customSecondary flex gap-2 items-center">
           <div>
             <SiSololearn />
           </div>

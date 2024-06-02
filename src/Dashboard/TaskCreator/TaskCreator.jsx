@@ -7,14 +7,14 @@ import { FaAddressCard } from "react-icons/fa";
 import { RiFolderHistoryFill } from "react-icons/ri";
 
 const TaskCreator = () => {
-  const activeNav = ({ isActive }) => (isActive ? "text-regular" : "text-secondary");
+  const activeNav = ({ isActive }) => (isActive ? "text-regular" : "text-customSecondary");
 
   return (
     <div>
       <div className="flex justify-center mt-10">
         <Logo />
       </div>
-      <div className="mt-12 font-semibold flex justify-center  text-secondary">
+      <div className="mt-12 font-semibold flex justify-center  text-customSecondary">
         <div className="space-y-3">
           <div>
             <NavLink to="/dashboard/task-creator-home" className={activeNav}>

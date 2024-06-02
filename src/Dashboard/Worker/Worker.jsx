@@ -5,7 +5,7 @@ import { FaTasks } from "react-icons/fa";
 import { MdAssignmentTurnedIn } from "react-icons/md";
 
 const Worker = () => {
-  const activeNav = ({ isActive }) => (isActive ? "text-regular" : "text-secondary");
+  const activeNav = ({ isActive }) => (isActive ? "text-regular" : "text-customSecondary");
 
   return (
     <div>
@@ -13,7 +13,7 @@ const Worker = () => {
         <Logo />
       </div>
 
-      <div className="mt-12 font-semibold flex justify-center  text-secondary">
+      <div className="mt-12 font-semibold flex justify-center  text-customSecondary">
         <div className="space-y-3">
           <div>
             <NavLink to="/dashboard/worker-home" className={activeNav}>
