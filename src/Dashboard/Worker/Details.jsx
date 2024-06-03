@@ -22,8 +22,20 @@ const Details = () => {
   const current_date = moment()._d;
   const status = "pending";
 
+  if (loader) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="relative">
+          <div className="h-24 w-24 rounded-full border-t-8 border-b-8 border-customSecondary"></div>
+          <div className="absolute top-0 left-0 h-24 w-24 rounded-full border-t-8 border-b-8 border-customPrimary animate-spin"></div>
+        </div>
+      </div>
+    );
+  }
+
   const handleTaskSubmit = (e) => {
     e.preventDefault();
+    setLoader(true);
     const submission_details = e.target.submission_Details.value;
 
     const info = {
@@ -44,8 +56,9 @@ const Details = () => {
     axiosSecure
       .post("/submits", info)
       .then((res) => {
-        console.log(res.data);
         if (res.data.insertedId) {
+          setLoader(false);
+          e.target.reset();
           Swal.fire({
             icon: "success",
             title: "Submitted!",
@@ -56,6 +69,7 @@ const Details = () => {
         }
       })
       .catch((err) => {
+        setLoader(false);
         Swal.fire({
           icon: "error",
           title: err.message,
