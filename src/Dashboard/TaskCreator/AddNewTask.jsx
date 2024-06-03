@@ -9,17 +9,18 @@ import useUploadImage from "./../../Hooks/useUploadImage";
 const AddNewTask = () => {
   const [coin, isLoading] = useGetCoin();
   const [image, setImage] = useState(null);
-  const { user } = useAuth();
+  const { user, loader, setLoader } = useAuth();
   const axiosSecure = useAxiosSecure();
   const uploadImage = useUploadImage();
 
   const {
+    reset,
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  if (isLoading) {
+  if (isLoading || loader) {
     return (
       <div className="flex items-center justify-center h-screen">
         <div className="relative">
@@ -36,12 +37,14 @@ const AddNewTask = () => {
   };
 
   const handleAddProduct = async (data) => {
+    setLoader(true);
     const expireDate = new Date(data.date);
     const taskQuantity = parseInt(data.quantity);
     const taskPayable = parseInt(data.payable);
     const totalPayable = taskQuantity * taskPayable;
 
     if (coin <= totalPayable) {
+      setLoader(false);
       return Swal.fire({
         icon: "info",
         title: "Insufficient Balance!",
@@ -72,6 +75,8 @@ const AddNewTask = () => {
       .post("/add-task", info)
       .then((res) => {
         if (res?.data?.insertedId) {
+          setLoader(false);
+          reset();
           Swal.fire({
             icon: "success",
             title: "Success",
@@ -82,6 +87,7 @@ const AddNewTask = () => {
         }
       })
       .catch((err) => {
+        setLoader(false);
         Swal.fire({
           icon: "error",
           title: "Error",

@@ -15,6 +15,7 @@ import PaymentHistory from "../Dashboard/TaskCreator/PaymentHistory";
 import WarkerHome from "./../Dashboard/Worker/WarkerHome";
 import TaskList from "../Dashboard/Worker/TaskList";
 import MySubmission from "./../Dashboard/Worker/MySubmission";
+import Details from "../Dashboard/Worker/Details";
 
 const router = createBrowserRouter([
   {
@@ -83,6 +84,11 @@ const router = createBrowserRouter([
       {
         path: "my-submission",
         element: <MySubmission />,
+      },
+      {
+        path: "details/:id",
+        element: <Details />,
+        loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
       },
     ],
   },
