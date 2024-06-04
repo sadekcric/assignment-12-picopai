@@ -219,7 +219,7 @@ const AddNewTask = () => {
                   type="submit"
                   className="w-full py-2.5 px-4 text-sm font-semibold rounded-full text-[#fff] bg-[#333] hover:bg-[#222] focus:outline-none"
                 >
-                  Sign up
+                  Submit Task
                 </button>
               </div>
             </form>

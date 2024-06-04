@@ -19,6 +19,8 @@ const TaskList = () => {
     );
   }
 
+  const filteredTask = allTask.filter((task) => task.quantity > 0);
+
   return (
     <section className="bg-[#eaeaea] ">
       <div className="">
@@ -32,7 +34,7 @@ const TaskList = () => {
         <div className=" px-4 pb-10 -z-20">
           <div className="max-w-7xl max-md:max-w-lg mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-              {allTask.map((task) => (
+              {filteredTask.map((task) => (
                 <div key={task._id} className="bg-[#fff] cursor-pointer rounded overflow-hidden group">
                   <div className="lg:relative overflow-hidden">
                     <img

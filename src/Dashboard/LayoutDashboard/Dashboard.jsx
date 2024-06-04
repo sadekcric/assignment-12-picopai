@@ -25,12 +25,12 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="bg-customPrimary z-10 sticky top-0 py-5 px-3 lg:ml-[250px]">
+      <div className="bg-customPrimary z-10 sticky lg:static top-0 py-2 lg:py-3 px-3 lg:ml-[250px]">
         <Navbar />
       </div>
 
       {user && role === "Admin" && (
-        <div className="lg:flex min-h-[calc(100vh-110px)] hidden">
+        <div className="lg:flex min-h-[calc(100vh-96px)] hidden">
           <div className="w-[250px] bg-customPrimary fixed top-0 left-0 min-h-screen">
             <AdminLayout />
           </div>
@@ -42,7 +42,7 @@ const Dashboard = () => {
       )}
 
       {user && role === "Task Creator" && (
-        <div className="lg:flex min-h-[calc(100vh-110px)] hidden">
+        <div className="lg:flex min-h-[calc(100vh-96px)] hidden">
           <div className="w-[250px] bg-customPrimary fixed top-0 left-0 min-h-screen">
             <TaskCreator />
           </div>
@@ -54,7 +54,7 @@ const Dashboard = () => {
       )}
 
       {user && role === "Worker" && (
-        <div className="lg:flex min-h-[calc(100vh-110px)] hidden">
+        <div className="lg:flex min-h-[calc(100vh-96px)] hidden">
           <div className="w-[250px] bg-customPrimary fixed top-0 left-0 min-h-screen">
             <Worker />
           </div>
@@ -71,7 +71,7 @@ const Dashboard = () => {
           <div className="drawer lg:hidden">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
-              <label htmlFor="my-drawer" className="text-3xl text-customSecondary drawer-button z-20 fixed top-10 left-5">
+              <label htmlFor="my-drawer" className="text-3xl text-customSecondary drawer-button z-20 fixed top-8 left-5">
                 <RiMenu5Fill />
               </label>
             </div>
@@ -95,7 +95,7 @@ const Dashboard = () => {
           <div className="drawer lg:hidden">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
-              <label htmlFor="my-drawer" className="text-3xl text-customSecondary drawer-button z-20 fixed top-10 left-5">
+              <label htmlFor="my-drawer" className="text-3xl text-customSecondary drawer-button z-20 fixed top-8 left-5">
                 <RiMenu5Fill />
               </label>
             </div>
@@ -119,7 +119,7 @@ const Dashboard = () => {
           <div className="drawer lg:hidden">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
-              <label htmlFor="my-drawer" className="text-3xl text-customSecondary drawer-button z-20 fixed top-10 left-5">
+              <label htmlFor="my-drawer" className="text-3xl text-customSecondary drawer-button z-20 fixed top-8 left-5">
                 <RiMenu5Fill />
               </label>
             </div>

@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import Logo from "../../Component/Logo";
 import { FaTasks } from "react-icons/fa";
 import { MdAssignmentTurnedIn } from "react-icons/md";
+import { GiWallet } from "react-icons/gi";
 
 const Worker = () => {
   const activeNav = ({ isActive }) => (isActive ? "text-regular" : "text-customSecondary");
@@ -44,6 +45,17 @@ const Worker = () => {
                   <MdAssignmentTurnedIn />
                 </span>
                 <span>My submission</span>
+              </div>
+            </NavLink>
+          </div>
+
+          <div>
+            <NavLink to="/dashboard/withdrawal" className={activeNav}>
+              <div className="flex gap-2 items-center text-lg">
+                <span>
+                  <GiWallet />
+                </span>
+                <span>My Withdrawals</span>
               </div>
             </NavLink>
           </div>

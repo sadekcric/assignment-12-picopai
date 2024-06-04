@@ -9,7 +9,7 @@ const useGetCoin = () => {
   const { data: coin, isLoading } = useQuery({
     queryKey: ["coin", user?.email],
     queryFn: async () => {
-      const findUser = await axiosPublic.get(`/users/${user.email}`);
+      const findUser = await axiosPublic.get(`/users/coin/${user.email}`);
       const UserRole = findUser.data.coin;
       return UserRole;
     },
