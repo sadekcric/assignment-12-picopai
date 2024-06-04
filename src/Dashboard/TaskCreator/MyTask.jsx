@@ -5,6 +5,7 @@ import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyTask = () => {
   const [getTask, isLoading, refetch] = useTaskByEmail();
@@ -86,8 +87,10 @@ const MyTask = () => {
                 <td className="px-4 py-4 text-start text-sm text-gray-800">{date(task.createTime)}</td>
                 <td className="px-4 py-4 text-start text-sm text-gray-800">{date(task.completionDate)}</td>
                 <td className="px-4 py-4 text-center text-sm text-gray-800">
-                  <button className="text-xl text-[#078017]">
-                    <FaEdit />
+                  <button>
+                    <Link to={`/dashboard/update/${task._id}`} className="text-xl text-[#078017]">
+                      <FaEdit />
+                    </Link>
                   </button>
                 </td>
                 <td className="px-4 py-4 text-center text-sm text-gray-800">

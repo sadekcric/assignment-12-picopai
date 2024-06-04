@@ -17,6 +17,7 @@ import TaskList from "../Dashboard/Worker/TaskList";
 import MySubmission from "./../Dashboard/Worker/MySubmission";
 import Details from "../Dashboard/Worker/Details";
 import MyWithdrawals from "../Dashboard/Worker/MyWithdrawals";
+import Update from "../Dashboard/TaskCreator/Update";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,11 @@ const router = createBrowserRouter([
       {
         path: "my-task",
         element: <MyTask />,
+      },
+      {
+        path: "update/:id",
+        element: <Update />,
+        loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
       },
       {
         path: "purchase-coin",
