@@ -7,7 +7,7 @@ export default {
       customSecondary: "#DFD0B8",
       regular: "#15F5BA",
       success: " #2FE71A ",
-      customGray: "#Platinum",
+      customGray: "#F0F0F0",
     },
   },
   plugins: [require("daisyui")],
