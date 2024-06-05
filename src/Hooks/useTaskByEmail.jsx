@@ -14,8 +14,8 @@ const useTaskByEmail = () => {
     queryKey: ["emailTask", user.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/get_task/${user.email}`);
-
-      return res.data;
+      const reverseData = res.data.reverse();
+      return reverseData;
     },
   });
   return [getTask, isLoading, refetch];

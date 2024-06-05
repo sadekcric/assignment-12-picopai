@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "./../../Hooks/useAxiosSecure";
 import useUploadImage from "./../../Hooks/useUploadImage";
+import useGetUser from "../../Hooks/useGetUser";
 
 const AddNewTask = () => {
   const [coin, isLoading] = useGetCoin();
@@ -12,6 +13,7 @@ const AddNewTask = () => {
   const { user, loader, setLoader } = useAuth();
   const axiosSecure = useAxiosSecure();
   const uploadImage = useUploadImage();
+  const [, , refetch] = useGetUser();
 
   const {
     reset,
@@ -75,6 +77,7 @@ const AddNewTask = () => {
       .post("/add-task", info)
       .then((res) => {
         if (res?.data?.insertedId) {
+          refetch();
           setLoader(false);
           reset();
           Swal.fire({
@@ -163,7 +166,7 @@ const AddNewTask = () => {
                       type="number"
                       {...register("payable", { required: true })}
                       className="bg-transparent w-full text-sm border-b border-[#333] px-2 py-3 outline-none placeholder:text-[#333] focus:bg-[#ffffff] focus:bg-opacity-50"
-                      placeholder="Payable Amount"
+                      placeholder="Payable Amount (per Task)"
                     />
                   </div>
                   {errors.payable && <span className="text-[#ff0000]">This field is required</span>}

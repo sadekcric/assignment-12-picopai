@@ -37,6 +37,38 @@ const Register = () => {
   }
 
   const onSubmit = async (data) => {
+    // Validation section
+    if (data.password.length < 6) {
+      setLoader(false);
+      return Swal.fire({
+        icon: "error",
+        title: "Password Must be 6 or up to 6 corrector",
+        showConfirmButton: false,
+        timer: 3000,
+      });
+    }
+
+    // if (!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]$/.test(data.password)) {
+    //   setLoader(false);
+    //   return Swal.fire({
+    //     icon: "error",
+    //     title: "Password Must be a uppercase , a lowercase and a special Correcter!",
+    //     showConfirmButton: false,
+    //     timer: 3000,
+    //   });
+    // }
+
+    if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(data.password)) {
+      setLoader(false);
+      return Swal.fire({
+        icon: "error",
+        title: "Password must contain an uppercase and a lowercase letter, a digit, and a special character!",
+        showConfirmButton: false,
+        timer: 3000,
+      });
+    }
+
+    // Validation Done
     // for Image Upload by imgbb
     const fileImage = { image: data.image[0] };
     const uploadedPhotoFile = await uploadImage(fileImage);

@@ -1,17 +1,16 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const PurchaseCoin = () => {
-  const [pay, setPay] = useState(0);
-
-  const handleParsesCoin = (coin) => {
+  const handlePurchaseCoin = (coin) => {
     if (coin === 10) {
-      setPay(1);
+      // setPay(1);
+      localStorage.setItem("purchaseAmount", 1);
     } else if (coin === 100) {
-      setPay(9);
+      localStorage.setItem("purchaseAmount", 9);
     } else if (coin === 500) {
-      setPay(19);
+      localStorage.setItem("purchaseAmount", 19);
     } else if (coin === 1000) {
-      setPay(39);
+      localStorage.setItem("purchaseAmount", 39);
     }
   };
 
@@ -29,33 +28,41 @@ const PurchaseCoin = () => {
         <div className="max-w-2xl w-full p-6 bg-[#fff] bg-opacity-50 rounded-lg shadow-md">
           <h1 className="text-2xl font-bold mb-6 text-center">Purchase Coins</h1>
           <div className="grid gap-4">
-            <div
-              onClick={() => handleParsesCoin(10)}
-              className="p-4 bg-regular bg-opacity-70 hover:bg-opacity-100 transition text-customPrimary rounded-lg cursor-pointer text-center font-semibold"
-            >
-              10 coins = 1 dollar
-            </div>
+            <Link to={"/dashboard/payment"}>
+              <div
+                onClick={() => handlePurchaseCoin(10)}
+                className="p-4 bg-regular bg-opacity-70 hover:bg-opacity-100 transition text-customPrimary rounded-lg cursor-pointer text-center font-semibold"
+              >
+                10 coins = 1 dollar
+              </div>
+            </Link>
 
-            <div
-              onClick={() => handleParsesCoin(100)}
-              className="p-4 bg-regular bg-opacity-70 hover:bg-opacity-100 transition text-customPrimary rounded-lg cursor-pointer text-center font-semibold"
-            >
-              100 coins = 9 dollars
-            </div>
+            <Link to={"/dashboard/payment"}>
+              <div
+                onClick={() => handlePurchaseCoin(100)}
+                className="p-4 bg-regular bg-opacity-70 hover:bg-opacity-100 transition text-customPrimary rounded-lg cursor-pointer text-center font-semibold"
+              >
+                100 coins = 9 dollar
+              </div>
+            </Link>
 
-            <div
-              onClick={() => handleParsesCoin(500)}
-              className="p-4 bg-regular bg-opacity-70 hover:bg-opacity-100 transition text-customPrimary rounded-lg cursor-pointer text-center font-semibold"
-            >
-              500 coins = 19 dollars
-            </div>
+            <Link to={"/dashboard/payment"}>
+              <div
+                onClick={() => handlePurchaseCoin(500)}
+                className="p-4 bg-regular bg-opacity-70 hover:bg-opacity-100 transition text-customPrimary rounded-lg cursor-pointer text-center font-semibold"
+              >
+                500 coins = 19 dollar
+              </div>
+            </Link>
 
-            <div
-              onClick={() => handleParsesCoin(1000)}
-              className="p-4 bg-regular bg-opacity-70 hover:bg-opacity-100 transition text-customPrimary rounded-lg cursor-pointer text-center font-semibold"
-            >
-              1000 coins = 39 dollars
-            </div>
+            <Link to={"/dashboard/payment"}>
+              <div
+                onClick={() => handlePurchaseCoin(1000)}
+                className="p-4 bg-regular bg-opacity-70 hover:bg-opacity-100 transition text-customPrimary rounded-lg cursor-pointer text-center font-semibold"
+              >
+                1000 coins = 39 dollar
+              </div>
+            </Link>
           </div>
         </div>
       </div>

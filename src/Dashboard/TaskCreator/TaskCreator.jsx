@@ -11,7 +11,7 @@ const TaskCreator = () => {
 
   return (
     <div>
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center mt-6">
         <Logo />
       </div>
       <div className="mt-12 font-semibold flex justify-center  text-customSecondary">

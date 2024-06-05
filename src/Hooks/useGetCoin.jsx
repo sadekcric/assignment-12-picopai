@@ -6,7 +6,11 @@ const useGetCoin = () => {
   const { user } = useAuth();
   const axiosPublic = useAxiosPublic();
 
-  const { data: coin, isLoading } = useQuery({
+  const {
+    data: coin,
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["coin", user?.email],
     queryFn: async () => {
       const findUser = await axiosPublic.get(`/users/coin/${user.email}`);
@@ -15,7 +19,7 @@ const useGetCoin = () => {
     },
   });
 
-  return [coin, isLoading];
+  return [coin, isLoading, refetch];
 };
 
 export default useGetCoin;

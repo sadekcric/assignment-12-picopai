@@ -18,11 +18,14 @@ import MySubmission from "./../Dashboard/Worker/MySubmission";
 import Details from "../Dashboard/Worker/Details";
 import MyWithdrawals from "../Dashboard/Worker/MyWithdrawals";
 import Update from "../Dashboard/TaskCreator/Update";
+import Payment from "../Dashboard/TaskCreator/Payment";
+import Error from "../Pages/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -43,6 +46,7 @@ const router = createBrowserRouter([
     path: "dashboard",
     element: <Dashboard />,
     children: [
+      // For Admin Dashboard
       {
         path: "admin-home",
         element: <AdminHome />,
@@ -55,6 +59,8 @@ const router = createBrowserRouter([
         path: "manage-task",
         element: <ManageTask />,
       },
+
+      // For TaskCreator Dashboard
       {
         path: "task-creator-home",
         element: <TaskCreatorHome />,
@@ -77,9 +83,15 @@ const router = createBrowserRouter([
         element: <PurchaseCoin />,
       },
       {
+        path: "payment",
+        element: <Payment />,
+      },
+      {
         path: "payment-history",
         element: <PaymentHistory />,
       },
+
+      // For Worker Dashboard
       {
         path: "worker-home",
         element: <WarkerHome />,

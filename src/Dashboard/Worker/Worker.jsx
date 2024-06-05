@@ -10,7 +10,7 @@ const Worker = () => {
 
   return (
     <div>
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center mt-6">
         <Logo />
       </div>
 
