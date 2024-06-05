@@ -48,16 +48,6 @@ const Register = () => {
       });
     }
 
-    // if (!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]$/.test(data.password)) {
-    //   setLoader(false);
-    //   return Swal.fire({
-    //     icon: "error",
-    //     title: "Password Must be a uppercase , a lowercase and a special Correcter!",
-    //     showConfirmButton: false,
-    //     timer: 3000,
-    //   });
-    // }
-
     if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(data.password)) {
       setLoader(false);
       return Swal.fire({
