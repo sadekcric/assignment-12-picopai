@@ -64,7 +64,7 @@ const MyTask = () => {
         description={"View and manage all tasks you have added, including editing, updating, and deleting tasks as needed."}
       />
 
-      <div>
+      <div className="overflow-x-scroll">
         <table className="lg:w-4/5 w-full mx-auto border divide-y divide-gray-200">
           <thead className="bg-customSecondary whitespace-nowrap">
             <tr>

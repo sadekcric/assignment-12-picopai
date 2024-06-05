@@ -6,7 +6,7 @@ import useDateFunc from "./../../Hooks/useDateFunc";
 
 const PaymentHistory = () => {
   const { user } = useAuth();
-  console.log(user);
+
   const axiosSecure = useAxiosSecure();
   const date = useDateFunc();
 

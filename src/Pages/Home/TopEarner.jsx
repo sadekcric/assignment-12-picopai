@@ -14,7 +14,6 @@ const TopEarner = () => {
     },
   });
 
-  console.log(toper);
   return (
     <section>
       <SectionTitle
