@@ -15,7 +15,7 @@ const ManageTaskCart = ({ task, handleDelete }) => {
 
   return (
     <>
-      <tr>
+      <tr className="even:bg-gray-200">
         <td className="px-4 py-4 text-start text-sm text-gray-800">{title}</td>
         <td className="px-4 py-4 text-center text-sm text-gray-800">{creator}</td>
         <td className="px-4 py-4 text-center text-sm text-gray-800">{quantity}</td>

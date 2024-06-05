@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="flex gap-3 ">
         <div className="lg:border-[#FEA832] lg:shadow-[#FEA832] lg:border-opacity-30 lg:border-t-[1px]  lg:shadow-md lg:pt-3 lg:pb-2 lg:px-3">
           <div className="space-y-2  flex justify-center flex-col items-center">
-            <div className="bg-[#5d7788] shadow-sm shadow-[#FEA832] text-[#FEA832]  font-semibold rounded-xl pt-1 border-b-2 h-16 w-36">
+            <div className="bg-[#5d7788] shadow-sm shadow-[#FEA832] text-[#FEA832]  font-semibold rounded-xl pt-1 border-b-2 border-[#FEA832] h-16 w-36">
               <div className="justify-center pb-[2px]  text-center text-xl flex gap-2 items-center">
                 <span>
                   <img src={coin} className="w-8 h-8" alt="" />

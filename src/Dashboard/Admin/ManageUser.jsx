@@ -90,7 +90,7 @@ const ManageUser = () => {
 
             <tbody className="whitespace-nowrap">
               {workers.map((worker, index) => (
-                <tr key={worker._id} className="odd:bg-blue-50">
+                <tr key={worker._id} className="even:bg-gray-200">
                   <td className="pl-4 w-8 hidden lg:inline-block"></td>
 
                   <td className="pl-4 w-10">{index + 1}</td>
