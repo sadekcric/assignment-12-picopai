@@ -4,14 +4,18 @@ import useAxiosSecure from "./useAxiosSecure";
 const useGetWorker = () => {
   const axiosSecure = useAxiosSecure();
 
-  const { data = [], isLoading } = useQuery({
+  const {
+    data = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["worker"],
     queryFn: async () => {
       const res = await axiosSecure.get("/worker");
       return res.data;
     },
   });
-  return [data, isLoading];
+  return [data, isLoading, refetch];
 };
 
 export default useGetWorker;

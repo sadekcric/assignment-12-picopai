@@ -1,8 +1,50 @@
 import { MdDelete } from "react-icons/md";
 import useGetWorker from "../../Hooks/useGetWorker";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const ManageUser = () => {
-  const [workers, isLoading] = useGetWorker();
+  const [workers, isLoading, refetch] = useGetWorker();
+  const axiosSecure = useAxiosSecure();
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure
+          .delete(`/worker/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount) {
+              refetch();
+              Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Worker Deleted Successfully!",
+                showConfirmButton: false,
+                timer: 3000,
+              });
+            }
+          })
+
+          .catch((err) => {
+            Swal.fire({
+              icon: "error",
+              title: "Error",
+              text: err.message,
+              showConfirmButton: false,
+              timer: 3000,
+            });
+          });
+      }
+    });
+  };
 
   if (isLoading) {
     return (
@@ -60,7 +102,7 @@ const ManageUser = () => {
                   <td className="p-4 text-sm text-black">{worker.coin}</td>
 
                   <td className="p-4">
-                    <button className="ml-2 text-center text-[red] text-2xl" title="Edit">
+                    <button onClick={() => handleDelete(worker._id)} className="ml-2 text-center text-[red] text-2xl" title="Edit">
                       <MdDelete />
                     </button>
                   </td>
