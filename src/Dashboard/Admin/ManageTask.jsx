@@ -4,9 +4,12 @@ import { FaCheck } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import useGetAllTask from "../../Hooks/useGetAllTask";
 import { RiKanbanView } from "react-icons/ri";
+import useAxiosSecure from "./../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const ManageTask = () => {
-  const [getTask, isLoading] = useGetAllTask();
+  const [getTask, isLoading, refetch] = useGetAllTask();
+  const axiosSecure = useAxiosSecure();
 
   if (isLoading) {
     return (
@@ -19,15 +22,43 @@ const ManageTask = () => {
     );
   }
 
-  console.log(getTask);
-
   const handleDelete = (id) => {
-    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          axiosSecure.delete(`/tasks/${id}`).then((res) => {
+            if (res.data) {
+              console.log(res.data);
+              refetch();
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+        }
+      })
+      .catch((err) => {
+        Swal.fire({
+          title: "Error!",
+          text: err.message,
+          icon: "error",
+        });
+      });
   };
 
   return (
     <section className="bg-customGray min-h-screen bg-fixed py-10 lg:py-24">
-      <div className="bg-[#fff] lg:p-10 p-3 lg:w-4/5 mx-auto  border-4 border-customSecondary rounded-lg">
+      <div className="lg:bg-[#fff] lg:p-10 lg:w-4/5 mx-auto  lg:border-4 border-customSecondary lg:rounded-lg overflow-x-scroll">
         <table className="  w-full border  divide-y divide-gray-200 ">
           <thead className="bg-customSecondary whitespace-nowrap">
             <tr>

@@ -4,7 +4,11 @@ import useAxiosPublic from "./useAxiosPublic";
 const useGetAllTask = () => {
   const axiosPublic = useAxiosPublic();
 
-  const { data: allTask = [], isLoading } = useQuery({
+  const {
+    data: allTask = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["allTask"],
     queryFn: async () => {
       const res = await axiosPublic.get("/tasks");
@@ -13,7 +17,7 @@ const useGetAllTask = () => {
     },
   });
 
-  return [allTask, isLoading];
+  return [allTask, isLoading, refetch];
 };
 
 export default useGetAllTask;

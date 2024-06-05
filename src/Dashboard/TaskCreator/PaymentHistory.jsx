@@ -38,30 +38,32 @@ const PaymentHistory = () => {
       />
 
       <div className="mb-24">
-        <table className="lg:w-4/5 w-full mx-auto border divide-y divide-gray-200">
-          <thead className="bg-customSecondary whitespace-nowrap">
-            <tr>
-              <th className="px-4 py-4 text-start text-xs font-semibold text-customPrimary uppercase tracking-wider ">sl</th>
+        <div className="overflow-x-scroll">
+          <table className="lg:w-4/5 w-full mx-auto border divide-y divide-gray-200">
+            <thead className="bg-customSecondary whitespace-nowrap">
+              <tr>
+                <th className="px-4 py-4 text-start text-xs font-semibold text-customPrimary uppercase tracking-wider ">sl</th>
 
-              <th className="px-4 py-4 text-center  text-xs font-semibold text-customPrimary uppercase tracking-wider">transition Id</th>
+                <th className="px-4 py-4 text-center  text-xs font-semibold text-customPrimary uppercase tracking-wider">transition Id</th>
 
-              <th className="px-4 py-4 text-center text-xs font-semibold text-customPrimary uppercase tracking-wider">Bay Package</th>
+                <th className="px-4 py-4 text-center text-xs font-semibold text-customPrimary uppercase tracking-wider">Bay Package</th>
 
-              <th className="px-4 py-4 text-start  text-xs font-semibold text-customPrimary uppercase tracking-wider">Payment Date</th>
-            </tr>
-          </thead>
-
-          <tbody className="bg-[#fff] divide-y divide-gray-200 whitespace-nowrap">
-            {data.map((payment, index) => (
-              <tr key={payment._id}>
-                <td className="px-4 py-4 text-start text-sm text-gray-800">{index + 1}</td>
-                <td className="px-4 py-4 text-center text-sm text-gray-800">{payment.transactionId}</td>
-                <td className="px-4 py-4 text-center text-sm text-gray-800">{payment.price}</td>
-                <td className="px-4 py-4 text-start text-sm text-gray-800">{date(payment.date)}</td>
+                <th className="px-4 py-4 text-start  text-xs font-semibold text-customPrimary uppercase tracking-wider">Payment Date</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody className="bg-[#fff] divide-y divide-gray-200 whitespace-nowrap">
+              {data.map((payment, index) => (
+                <tr key={payment._id}>
+                  <td className="px-4 py-4 text-start text-sm text-gray-800">{index + 1}</td>
+                  <td className="px-4 py-4 text-center text-sm text-gray-800">{payment.transactionId}</td>
+                  <td className="px-4 py-4 text-center text-sm text-gray-800">{payment.price}</td>
+                  <td className="px-4 py-4 text-start text-sm text-gray-800">{date(payment.date)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );

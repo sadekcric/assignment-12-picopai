@@ -114,7 +114,7 @@ const AddNewTask = () => {
             backgroundAttachment: "fixed",
           }}
         >
-          <div className="lg:w-1/2 mx-auto m-4 bg-opacity-70 p-3 lg:p-5 bg-[#fff] rounded-2xl shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)]">
+          <div className="lg:w-1/2  mx-auto m-4 bg-opacity-70 p-3 lg:p-5 bg-[#fff] rounded-2xl shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)]">
             <h2 className="text-customPrimary text-xl lg:text-3xl font-bold text-center my-5">Add New Task</h2>
             {/* add product Form */}
             <form onSubmit={handleSubmit(handleAddProduct)}>
@@ -132,8 +132,8 @@ const AddNewTask = () => {
               </div>
 
               {/*CompletionDate + Task quantity  */}
-              <div className="flex gap-3 mt-3 items-center">
-                <div className="flex-1">
+              <div className="lg:flex  gap-3 mt-3 items-center">
+                <div className="flex-1 mt-3 lg:mt-0">
                   <div className="relative flex flex-col items-center">
                     <p className="text-sm absolute bottom-3 left-28">Completion Time</p>
                     <input
@@ -145,7 +145,7 @@ const AddNewTask = () => {
                   {errors.date && <span className="text-[#ff0000]">This field is required</span>}
                 </div>
 
-                <div className="flex-1">
+                <div className="flex-1 mt-3 lg:mt-0">
                   <div className="relative flex flex-col items-center">
                     <input
                       type="number"
