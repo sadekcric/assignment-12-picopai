@@ -6,6 +6,21 @@ import Swal from "sweetalert2";
 const ManageUser = () => {
   const [workers, isLoading, refetch] = useGetWorker();
   const axiosSecure = useAxiosSecure();
+  // const [role, setRole] = useState("");
+
+  const handleUpdateRole = (event, email) => {
+    const role = event.target.value;
+    console.log(email);
+    console.log(role);
+    axiosSecure
+      .patch(`/role/${email}`, { role })
+      .then((res) => {
+        if (res.data.modifiedCount > 0) {
+          refetch();
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -16,11 +31,10 @@ const ManageUser = () => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axiosSecure
-          .delete(`/worker/${id}`)
-          .then((res) => {
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          axiosSecure.delete(`/worker/${id}`).then((res) => {
             if (res.data.deletedCount) {
               refetch();
               Swal.fire({
@@ -31,19 +45,18 @@ const ManageUser = () => {
                 timer: 3000,
               });
             }
-          })
-
-          .catch((err) => {
-            Swal.fire({
-              icon: "error",
-              title: "Error",
-              text: err.message,
-              showConfirmButton: false,
-              timer: 3000,
-            });
           });
-      }
-    });
+        }
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: err.message,
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      });
   };
 
   if (isLoading) {
@@ -93,7 +106,7 @@ const ManageUser = () => {
                   </td>
 
                   <td className="p-4 text-sm text-black">
-                    <select id="">
+                    <select onChange={(event) => handleUpdateRole(event, worker.email)} id="">
                       <option value="Admin">{worker.role}</option>
                       <option value="Admin">Admin</option>
                       <option value="Task Creator">Task Creator</option>
