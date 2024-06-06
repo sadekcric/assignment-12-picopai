@@ -36,7 +36,7 @@ const Login = () => {
     firebaseLogin(data.email, data.password)
       .then(({ user }) => {
         if (user) {
-          navigate("/admin-home");
+          navigate("/dashboard");
           Swal.fire({
             icon: "success",
             title: "Success",

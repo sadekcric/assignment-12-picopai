@@ -4,11 +4,16 @@ import { PiHandCoinsFill } from "react-icons/pi";
 import useGetTotalForAdmin from "../../Hooks/useGetTotalForAdmin";
 import useAllWithdrawals from "../../Hooks/useAllWithdrawals";
 import useDateFunc from "../../Hooks/useDateFunc";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import useGetUser from "./../../Hooks/useGetUser";
 
 const AdminHome = () => {
   const [allTotal, isLoading] = useGetTotalForAdmin();
-  const [allWithdraw, isPending] = useAllWithdrawals();
+  const [allWithdraw, isPending, refetch] = useAllWithdrawals();
   const date = useDateFunc();
+  const axiosSecure = useAxiosSecure();
+  const [, , reload] = useGetUser();
 
   if (isLoading || isPending) {
     return (
@@ -21,9 +26,49 @@ const AdminHome = () => {
     );
   }
 
-  console.log(allWithdraw);
-
   const { totalUser, totalCoin, totalPayment } = allTotal;
+
+  const handlePay = async (email, payCoin) => {
+    try {
+      const coin = { coin: payCoin };
+      const update = await axiosSecure.put(`/pay/${email}`, coin);
+
+      if (update.data.modifiedCount) {
+        try {
+          const deleteWithdraw = await axiosSecure.delete(`/withdraw/${email}`);
+
+          if (deleteWithdraw.data) {
+            console.log(deleteWithdraw.data);
+            refetch();
+            reload();
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: "Pay Confirmed!",
+              showConfirmButton: false,
+              timer: 3000,
+            });
+          }
+        } catch (err) {
+          Swal.fire({
+            icon: "error",
+            title: "error",
+            text: err.message,
+            showConfirmButton: false,
+            timer: 3000,
+          });
+        }
+      }
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        title: "error",
+        text: err.message,
+        showConfirmButton: false,
+        timer: 3000,
+      });
+    }
+  };
 
   return (
     <section className="bg-customGray min-h-screen px-3 py-5 lg:px-10 lg:py-24">
@@ -87,7 +132,12 @@ const AdminHome = () => {
                 <td className="px-4 py-4 text-center text-sm text-gray-800">{withdraw.method}</td>
                 <td className="px-4 py-4 text-center text-sm text-gray-800">{date(withdraw.withdraw_date)}</td>
                 <td className="px-4 py-4 text-center text-sm text-gray-800">
-                  <button className="font-semibold px-4 py-1 bg-green-600 text-white rounded-md">pay</button>
+                  <button
+                    onClick={() => handlePay(withdraw.worker_email, withdraw.withdrawal_coin)}
+                    className="font-semibold px-4 py-1 bg-green-600 text-white rounded-md"
+                  >
+                    pay
+                  </button>
                 </td>
               </tr>
             ))}

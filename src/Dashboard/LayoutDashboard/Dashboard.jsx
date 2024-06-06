@@ -35,7 +35,7 @@ const Dashboard = () => {
             <AdminLayout />
           </div>
 
-          <div className=" ml-[250px] flex-1 border-2 ">
+          <div className=" ml-[250px] flex-1 ">
             <Outlet />
           </div>
         </div>
@@ -47,7 +47,7 @@ const Dashboard = () => {
             <TaskCreator />
           </div>
 
-          <div className=" ml-[250px] flex-1 border-2 ">
+          <div className=" ml-[250px] flex-1 ">
             <Outlet />
           </div>
         </div>
@@ -59,7 +59,7 @@ const Dashboard = () => {
             <Worker />
           </div>
 
-          <div className=" ml-[250px]  flex-1 border-2 ">
+          <div className=" ml-[250px]  flex-1 ">
             <Outlet />
           </div>
         </div>
