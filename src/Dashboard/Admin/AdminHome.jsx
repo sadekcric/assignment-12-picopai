@@ -8,6 +8,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useGetUser from "./../../Hooks/useGetUser";
 import { Helmet } from "react-helmet-async";
+import HomeState from "../../Component/HomeState";
 
 const AdminHome = () => {
   const [allTotal, isLoading] = useGetTotalForAdmin();
@@ -71,44 +72,27 @@ const AdminHome = () => {
     }
   };
 
+  const info = {
+    logo1: <FaUsers />,
+    logo2: <RiSecurePaymentFill />,
+    logo3: <PiHandCoinsFill />,
+
+    title1: "Total Users",
+    title2: "Total Payments",
+    title3: "Total Coin",
+
+    value1: totalUser,
+    value2: totalPayment,
+    value3: totalCoin,
+  };
+
   return (
     <section className="bg-customGray min-h-screen px-3 py-5 lg:px-10 lg:py-24">
       <Helmet>
         <title>picopai | admin-home</title>
       </Helmet>
-      <div className="lg:w-4/5 mx-auto p-3 bg-customPrimary  lg:p-5 rounded-lg">
-        <div className="flex gap-5 flex-col justify-between md:flex-row md:gap-3 lg:gap-8">
-          <div className="bg-[#FF0066] h-36 w-full rounded-lg flex gap-4 items-center justify-center">
-            <div className="text-6xl text-white">
-              <FaUsers />
-            </div>
-            <div>
-              <h2 className="text-5xl font-bold text-white">{totalUser}</h2>
-              <p className="text-xl font-semibold uppercase text-white">Total Users</p>
-            </div>
-          </div>
 
-          <div className="h-36 bg-[#FE9E2F] w-full rounded-lg flex gap-4 items-center justify-center">
-            <div className="text-7xl text-white">
-              <RiSecurePaymentFill />
-            </div>
-            <div>
-              <h2 className="text-5xl font-bold text-white">{totalPayment}</h2>
-              <p className="text-xl font-semibold uppercase text-white">Total Payments</p>
-            </div>
-          </div>
-
-          <div className="bg-regular h-36 w-full rounded-lg flex gap-4 items-center justify-center">
-            <div className="text-7xl text-white ">
-              <PiHandCoinsFill />
-            </div>
-            <div>
-              <h2 className="text-5xl font-bold text-white">{totalCoin}</h2>
-              <p className="text-xl font-semibold uppercase text-white">Total Coin</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HomeState info={info} />
 
       <div className="lg:w-4/5 mx-auto p-3 border-4 border-customPrimary bg-white my-10 py-10 px-5 lg:my-24 lg:p-5 rounded-lg">
         <h2 className="text-center text-4xl font-bold uppercase text-customPrimary mb-10">Withdraw Request</h2>

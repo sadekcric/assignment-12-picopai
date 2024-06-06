@@ -44,7 +44,7 @@ const Details = () => {
       title,
       details,
       taskImage,
-      payable,
+      payable: parseInt(payable),
       worker_email,
       submission_details,
       worker_name,

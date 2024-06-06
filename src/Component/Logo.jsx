@@ -6,8 +6,8 @@ const Logo = () => {
     <>
       {" "}
       <Link to={"/"}>
-        <button className="text-2xl font-semibold ubuntu text-customSecondary flex gap-2 items-center">
-          <div>
+        <button className="text-2xl font-semibold ubuntu   flex gap-2 items-center text-customSecondary">
+          <div className="">
             <SiSololearn />
           </div>
           <div>

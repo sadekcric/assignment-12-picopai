@@ -15,7 +15,7 @@ const Feature = () => {
       <SectionTitle title={"Features"} description={" Enhancing your micro-tasking experience efficiently."} />
 
       <div>
-        <div className="text-white bg-gradient-to-r from-purple-800 to-indigo-800 py-12 px-4">
+        <div className=" py-12 px-4">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-12 max-md:max-w-lg mx-auto">
               {features.map((f) => (
@@ -27,7 +27,7 @@ const Feature = () => {
                     <img src={f.img} className="w-full " alt="" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
-                  <p className="text-gray-300 group-hover:text-gray-500 text-sm">{f.description}</p>
+                  <p className=" group-hover:text-gray-500 text-sm">{f.description}</p>
                 </div>
               ))}
             </div>

@@ -64,8 +64,8 @@ const AddNewTask = () => {
     const info = {
       title: data.title,
       details: data.details,
-      quantity: data.quantity,
-      payable: data.payable,
+      quantity: parseInt(data.quantity),
+      payable: parseInt(data.payable),
       completionDate: expireDate,
       submissionInfo: data.info,
       taskImage: photo,

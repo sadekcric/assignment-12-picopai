@@ -30,7 +30,7 @@ const Header = () => {
         <div className="flex flex-wrap items-center gap-5 w-full container mx-auto">
           {/* Logo */}
           <Link to={"/"}>
-            <button className="text-2xl font-semibold ubuntu text-white flex gap-2 items-center">
+            <button className="text-2xl font-semibold ubuntu text-customSecondary flex gap-2 items-center">
               <div>
                 <SiSololearn />
               </div>

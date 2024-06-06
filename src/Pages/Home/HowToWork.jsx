@@ -13,14 +13,14 @@ const HowToWork = () => {
               <div className="relative text-center">
                 <img className="absolute -right-40 top-8 hidden lg:block" src={line} alt="" />
 
-                <div className="relative w-14 h-14 mb-10 mx-auto text-2xl font-bold font-heading bg-indigo-100 rounded-full">
+                <div className="relative w-14 h-14 mb-10 mx-auto text-2xl font-bold font-heading bg-[#40A578] rounded-full">
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <p className="w-12 h-12 flex items-center justify-center  bg-[#40A578] rounded-full">1</p>
+                    <p className="w-12 h-12 flex items-center justify-center   rounded-full">1</p>
                   </div>
                 </div>
                 <div className="md:max-w-xs mx-auto">
                   <h3 className="mb-5 font-heading text-xl font-bold font-heading leading-normal">Register</h3>
-                  <p className="font-sans text-gray-600">Sign up quickly with your email to get started.</p>
+                  <p className="font-sans text-white">Sign up quickly with your email to get started.</p>
                 </div>
               </div>
 
@@ -32,15 +32,15 @@ const HowToWork = () => {
             <div className="w-full md:w-1/3 p-8">
               <div className="relative text-center">
                 <img className="absolute -right-40 top-8 hidden lg:block" src={line} alt="" />
-                <div className="relative w-14 h-14 mb-10 mx-auto text-2xl font-bold font-heading bg-indigo-600 rounded-full">
+                <div className="relative w-14 h-14 mb-10 mx-auto text-2xl font-bold font-heading bg-[#40A578] rounded-full">
                   {/* <img className="absolute top-0 left-0" src={line} alt=""> */}
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <p className="w-12 h-12 flex items-center justify-center  bg-[#40A578] rounded-full">2</p>
+                    <p className="w-12 h-12 flex items-center justify-center   rounded-full">2</p>
                   </div>
                 </div>
                 <div className="md:max-w-xs mx-auto">
                   <h3 className="mb-5 font-heading text-xl font-bold font-heading leading-normal">Complete Tasks</h3>
-                  <p className="font-sans text-gray-600">Choose from a variety of micro-tasks and complete them.</p>
+                  <p className="font-sans text-white">Choose from a variety of micro-tasks and complete them.</p>
                 </div>
               </div>
 
@@ -51,14 +51,14 @@ const HowToWork = () => {
 
             <div className="w-full md:w-1/3 p-8">
               <div className="text-center">
-                <div className="relative w-14 h-14 mb-10 mx-auto text-2xl font-bold font-heading bg-indigo-100 rounded-full">
+                <div className="relative w-14 h-14 mb-10 mx-auto text-2xl font-bold font-heading bg-[#D0C9C0] rounded-full">
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <p className="w-12 h-12 flex items-center text-[#000] justify-center  bg-[#D0C9C0] rounded-full">3</p>
+                    <p className="w-12 h-12 flex items-center text-[#000] justify-center   rounded-full">3</p>
                   </div>
                 </div>
                 <div className="md:max-w-xs mx-auto">
                   <h3 className="mb-5 font-heading text-xl font-bold font-heading leading-normal">Earn Rewards</h3>
-                  <p className="font-sans text-gray-600">Receive payments securely and enjoy the rewards you earn.</p>
+                  <p className="font-sans text-white">Receive payments securely and enjoy the rewards you earn.</p>
                 </div>
               </div>
             </div>
