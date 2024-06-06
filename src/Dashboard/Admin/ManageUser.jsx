@@ -2,6 +2,7 @@ import { MdDelete } from "react-icons/md";
 import useGetWorker from "../../Hooks/useGetWorker";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const ManageUser = () => {
   const [workers, isLoading, refetch] = useGetWorker();
@@ -72,6 +73,9 @@ const ManageUser = () => {
 
   return (
     <section className="bg-customGray min-h-screen">
+      <Helmet>
+        <title>picopai | manage-user</title>
+      </Helmet>
       <div className=" py-10 lg:py-24">
         <div className=" overflow-x-auto rounded-lg border-4 border-customSecondary lg:w-4/5 mx-auto bg-[#fff]">
           <table className="min-w-full  pl-3 lg:pl-10 bg-[#fff]">

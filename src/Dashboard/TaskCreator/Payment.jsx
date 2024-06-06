@@ -3,11 +3,15 @@ import { Elements } from "@stripe/react-stripe-js";
 
 import SectionTitle from "../../Component/SectionTitle";
 import CheckoutForm from "./CheckoutForm";
+import { Helmet } from "react-helmet-async";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY);
 const Payment = () => {
   return (
     <div className="space-y-10 lg:w-1/2 mx-auto">
+      <Helmet>
+        <title>picopai | payment</title>
+      </Helmet>
       <SectionTitle
         title={"Payment Stripe"}
         description={

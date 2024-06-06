@@ -7,6 +7,7 @@ import useDateFunc from "../../Hooks/useDateFunc";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useGetUser from "./../../Hooks/useGetUser";
+import { Helmet } from "react-helmet-async";
 
 const AdminHome = () => {
   const [allTotal, isLoading] = useGetTotalForAdmin();
@@ -72,6 +73,9 @@ const AdminHome = () => {
 
   return (
     <section className="bg-customGray min-h-screen px-3 py-5 lg:px-10 lg:py-24">
+      <Helmet>
+        <title>picopai | admin-home</title>
+      </Helmet>
       <div className="lg:w-4/5 mx-auto p-3 bg-customPrimary  lg:p-5 rounded-lg">
         <div className="flex gap-5 flex-col justify-between md:flex-row md:gap-3 lg:gap-8">
           <div className="bg-[#FF0066] h-36 w-full rounded-lg flex gap-4 items-center justify-center">

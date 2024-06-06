@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "./../../Hooks/useAxiosSecure";
 import useGetWithdrawalByEmail from "../../Hooks/useGetWithdrawalByEmail";
 import useDateFunc from "../../Hooks/useDateFunc";
+import { Helmet } from "react-helmet-async";
 
 const MyWithdrawals = () => {
   const [getCoin, isLoading] = useGetCoin();
@@ -146,6 +147,9 @@ const MyWithdrawals = () => {
       }}
       className="min-h-screen"
     >
+      <Helmet>
+        <title>picopai | my withdrawals</title>
+      </Helmet>
       <div className=" mx-auto min-h-[calc(100vh-96px)] py-10 flex justify-center gap-5 lg:gap-10 flex-col lg:flex-row items-center ">
         <div className="lg:w-4/5 mx-auto m-4 bg-opacity-70 p-3 lg:p-5 bg-[#fff] rounded-2xl shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)] flex text-customPrimary flex-col lg:flex-row">
           {/* Withdrawal Information Section */}

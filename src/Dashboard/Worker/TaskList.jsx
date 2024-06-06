@@ -3,6 +3,7 @@ import useGetAllTask from "../../Hooks/useGetAllTask";
 import SectionTitle from "./../../Component/SectionTitle";
 import { TbCoinYuanFilled } from "react-icons/tb";
 import useDateFunc from "../../Hooks/useDateFunc";
+import { Helmet } from "react-helmet-async";
 
 const TaskList = () => {
   const [allTask, isLoading] = useGetAllTask();
@@ -23,6 +24,9 @@ const TaskList = () => {
 
   return (
     <section className="bg-[#eaeaea] ">
+      <Helmet>
+        <title>picopai | task list</title>
+      </Helmet>
       <div className="">
         <SectionTitle
           title={"Choose The Task"}

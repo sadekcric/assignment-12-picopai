@@ -8,6 +8,7 @@ import useAuth from "../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useGetUser from "../../Hooks/useGetUser";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [viewPass, setViewPss] = useState(false);
@@ -60,6 +61,9 @@ const Login = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>picopai | Login</title>
+      </Helmet>
       <div
         className="flex justify-center items-center  text-[#333] h-full min-h-screen p-4"
         style={{

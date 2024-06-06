@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 const PurchaseCoin = () => {
@@ -16,6 +17,9 @@ const PurchaseCoin = () => {
 
   return (
     <section>
+      <Helmet>
+        <title>picopai | purchase-coin</title>
+      </Helmet>
       <div
         className="min-h-[calc(100vh-96px)] bg-customGray flex items-center justify-center"
         style={{

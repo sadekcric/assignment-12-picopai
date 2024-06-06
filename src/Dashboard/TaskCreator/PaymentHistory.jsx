@@ -3,6 +3,7 @@ import SectionTitle from "../../Component/SectionTitle";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useDateFunc from "./../../Hooks/useDateFunc";
+import { Helmet } from "react-helmet-async";
 
 const PaymentHistory = () => {
   const { user } = useAuth();
@@ -32,6 +33,10 @@ const PaymentHistory = () => {
 
   return (
     <section>
+      <Helmet>
+        <title>picopai | payment-history</title>
+      </Helmet>
+
       <SectionTitle
         title={"Payment History"}
         description={"View a detailed record of your past payments, including dates, amounts, and reference numbers."}

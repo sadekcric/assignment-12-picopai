@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import SectionTitle from "../../Component/SectionTitle";
 import useGetWorkerSubmit from "../../Hooks/useGetWorkerSubmit";
 import useDateFunc from "./../../Hooks/useDateFunc";
@@ -28,6 +29,9 @@ const MySubmission = () => {
   console.log(getSubmission);
   return (
     <section className="bg-">
+      <Helmet>
+        <title>picopai | my submission</title>
+      </Helmet>
       <SectionTitle
         title={"Submitted Date & Status"}
         description={"Monitor your submitted tasks, check their current status, and verify completion to stay updated and informed"}

@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import useGoogleLogin from "../../Component/useGoogleLogin";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const [viewPass, setViewPss] = useState(false);
@@ -128,6 +129,9 @@ const Register = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>picopai | register</title>
+      </Helmet>
       <div
         className="flex justify-center items-center  text-[#333] h-full min-h-screen p-4 "
         style={{

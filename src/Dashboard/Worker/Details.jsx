@@ -5,6 +5,7 @@ import useAuth from "../../Hooks/useAuth";
 import moment from "moment";
 import useAxiosSecure from "./../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Details = () => {
   const task = useLoaderData();
@@ -81,6 +82,9 @@ const Details = () => {
 
   return (
     <section>
+      <Helmet>
+        <title>picopai |task details</title>
+      </Helmet>
       <SectionTitle
         title={"View details"}
         description={

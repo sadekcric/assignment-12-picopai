@@ -6,6 +6,7 @@ import { FaEdit } from "react-icons/fa";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const MyTask = () => {
   const [getTask, isLoading, refetch] = useTaskByEmail();
@@ -59,6 +60,9 @@ const MyTask = () => {
 
   return (
     <section>
+      <Helmet>
+        <title>picopai | my-task</title>
+      </Helmet>
       <SectionTitle
         title={"Running Task List"}
         description={"View and manage all tasks you have added, including editing, updating, and deleting tasks as needed."}

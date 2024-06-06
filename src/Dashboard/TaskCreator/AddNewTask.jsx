@@ -6,6 +6,7 @@ import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "./../../Hooks/useAxiosSecure";
 import useUploadImage from "./../../Hooks/useUploadImage";
 import useGetUser from "../../Hooks/useGetUser";
+import { Helmet } from "react-helmet-async";
 
 const AddNewTask = () => {
   const [coin, isLoading] = useGetCoin();
@@ -103,6 +104,9 @@ const AddNewTask = () => {
 
   return (
     <section>
+      <Helmet>
+        <title>picopai | add-task</title>
+      </Helmet>
       <div>
         <div
           className="flex justify-center  items-center  text-[#333] h-full min-h-[calc(100vh-110px)] "

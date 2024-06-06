@@ -4,6 +4,7 @@ import useAxiosSecure from "./../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
 import ManageTaskCart from "./ManageTaskCart";
+import { Helmet } from "react-helmet-async";
 
 const ManageTask = () => {
   const [getTask, isLoading, refetch] = useGetAllTask();
@@ -59,6 +60,9 @@ const ManageTask = () => {
   return (
     <>
       <section className="bg-customGray min-h-screen bg-fixed py-10 lg:py-24">
+        <Helmet>
+          <title>picopai | manage-task</title>
+        </Helmet>
         <div className="lg:bg-[#fff] lg:p-10 lg:w-4/5 mx-auto  lg:border-4 border-customSecondary lg:rounded-lg overflow-x-scroll">
           <table className="  w-full border  divide-y divide-gray-200 ">
             <thead className="bg-customSecondary whitespace-nowrap">
