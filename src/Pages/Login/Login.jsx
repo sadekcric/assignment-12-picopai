@@ -7,6 +7,7 @@ import useGoogleLogin from "./../../Component/useGoogleLogin";
 import useAuth from "../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useGetUser from "../../Hooks/useGetUser";
 
 const Login = () => {
   const [viewPass, setViewPss] = useState(false);
@@ -35,7 +36,7 @@ const Login = () => {
     firebaseLogin(data.email, data.password)
       .then(({ user }) => {
         if (user) {
-          navigate("/dashboard");
+          navigate("/admin-home");
           Swal.fire({
             icon: "success",
             title: "Success",

@@ -5,12 +5,14 @@ import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import { BsCashCoin } from "react-icons/bs";
 import coin from "../../assets/coin.png";
+import useGetUser from "./../../Hooks/useGetUser";
 
 const Header = () => {
   const [active, setActive] = useState(false);
   const { user, logout } = useAuth();
   const [availableCoin, setAvailableCoin] = useState(false);
   const navigate = useNavigate();
+  const [role] = useGetUser();
 
   const userActiveLink = ({ isActive }) =>
     isActive
@@ -43,11 +45,27 @@ const Header = () => {
             <ul className="lg:flex gap-4 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50 items-center">
               {user ? (
                 <>
-                  <li className="-translate-x-24">
-                    <NavLink to="/dashboard/task-creator-home" className={userActiveLink}>
-                      <button>Dashboard</button>
-                    </NavLink>
-                  </li>
+                  {role.role === "Admin" && (
+                    <li className="-translate-x-24">
+                      <NavLink to="/dashboard/admin-home" className={userActiveLink}>
+                        <button>Dashboard</button>
+                      </NavLink>
+                    </li>
+                  )}
+                  {role.role === "Task Creator" && (
+                    <li className="-translate-x-24">
+                      <NavLink to="/dashboard/task-creator-home" className={userActiveLink}>
+                        <button>Dashboard</button>
+                      </NavLink>
+                    </li>
+                  )}
+                  {role.role === "Worker" && (
+                    <li className="-translate-x-24">
+                      <NavLink to="/dashboard/worker-home" className={userActiveLink}>
+                        <button>Dashboard</button>
+                      </NavLink>
+                    </li>
+                  )}
 
                   <li className="-translate-x-20">
                     <button
@@ -153,11 +171,27 @@ const Header = () => {
                     </button>
                   </li>
 
-                  <li>
-                    <NavLink to="/dashboard/user" className={userActiveLink}>
-                      <button>Dashboard</button>
-                    </NavLink>
-                  </li>
+                  {role.role === "Admin" && (
+                    <li>
+                      <NavLink to="/dashboard/admin-home" className={userActiveLink}>
+                        <button>Dashboard</button>
+                      </NavLink>
+                    </li>
+                  )}
+                  {role.role === "Task Creator" && (
+                    <li>
+                      <NavLink to="/dashboard/task-creator-home" className={userActiveLink}>
+                        <button>Dashboard</button>
+                      </NavLink>
+                    </li>
+                  )}
+                  {role.role === "Worker" && (
+                    <li>
+                      <NavLink to="/dashboard/worker-home" className={userActiveLink}>
+                        <button>Dashboard</button>
+                      </NavLink>
+                    </li>
+                  )}
 
                   <li>
                     <button
