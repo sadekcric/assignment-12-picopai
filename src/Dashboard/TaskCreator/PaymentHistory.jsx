@@ -43,7 +43,7 @@ const PaymentHistory = () => {
       />
 
       <div className="mb-24">
-        <div className="overflow-x-scroll">
+        <div className="overflow-x-auto">
           <table className="lg:w-4/5 w-full mx-auto border divide-y divide-gray-200">
             <thead className="bg-customSecondary whitespace-nowrap">
               <tr>
