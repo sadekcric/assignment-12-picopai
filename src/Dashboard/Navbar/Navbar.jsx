@@ -83,7 +83,7 @@ const Navbar = () => {
                 <span className="text-regular lg:text-3xl">
                   <IoMdNotifications />
                 </span>
-                {notificationStatusCheck.length > 0 && (
+                {notificationStatusCheck?.length > 0 && (
                   <span className="absolute  text-xs bg-red-600 px-[6px] rounded-full text-regular -top-2 lg:top-0 lg:right-0 -right-2">
                     {notificationStatusCheck.length}
                   </span>

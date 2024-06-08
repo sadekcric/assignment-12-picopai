@@ -11,9 +11,9 @@ const useGetNotificationByEmail = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["notificationAll", user.email],
+    queryKey: ["notificationAll", user?.email],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/notification/${user.email}`);
+      const res = await axiosPublic.get(`/notification/${user?.email}`);
 
       return res.data.reverse();
     },

@@ -20,6 +20,10 @@ import MyWithdrawals from "../Dashboard/Worker/MyWithdrawals";
 import Update from "../Dashboard/TaskCreator/Update";
 import Payment from "../Dashboard/TaskCreator/Payment";
 import Error from "../Pages/Error";
+import AdminPrivateRoute from "./AdminPrivateRoute";
+import TaskCreatorPrivateRoute from "./TaskCreatorPrivateRoute";
+import WorkerPrivateRoute from "./WorkerPrivateRoute";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -44,74 +48,139 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivateRoute>
+        {" "}
+        <Dashboard />
+      </PrivateRoute>
+    ),
     children: [
       // For Admin Dashboard
       {
         path: "admin-home",
-        element: <AdminHome />,
+        element: (
+          <AdminPrivateRoute>
+            <AdminHome />
+          </AdminPrivateRoute>
+        ),
       },
       {
         path: "manage-user",
-        element: <ManageUser />,
+        element: (
+          <AdminPrivateRoute>
+            <ManageUser />
+          </AdminPrivateRoute>
+        ),
       },
       {
         path: "manage-task",
-        element: <ManageTask />,
+        element: (
+          <AdminPrivateRoute>
+            <ManageTask />
+          </AdminPrivateRoute>
+        ),
       },
 
       // For TaskCreator Dashboard
       {
         path: "task-creator-home",
-        element: <TaskCreatorHome />,
+        element: (
+          <TaskCreatorPrivateRoute>
+            <TaskCreatorHome />
+          </TaskCreatorPrivateRoute>
+        ),
       },
       {
         path: "add-task",
-        element: <AddNewTask />,
+        element: (
+          <TaskCreatorPrivateRoute>
+            <AddNewTask />
+          </TaskCreatorPrivateRoute>
+        ),
       },
       {
         path: "my-task",
-        element: <MyTask />,
+        element: (
+          <TaskCreatorPrivateRoute>
+            <MyTask />
+          </TaskCreatorPrivateRoute>
+        ),
       },
       {
         path: "update/:id",
-        element: <Update />,
+        element: (
+          <TaskCreatorPrivateRoute>
+            <Update />
+          </TaskCreatorPrivateRoute>
+        ),
         loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
       },
       {
         path: "purchase-coin",
-        element: <PurchaseCoin />,
+        element: (
+          <TaskCreatorPrivateRoute>
+            <PurchaseCoin />
+          </TaskCreatorPrivateRoute>
+        ),
       },
       {
         path: "payment",
-        element: <Payment />,
+        element: (
+          <TaskCreatorPrivateRoute>
+            <Payment />
+          </TaskCreatorPrivateRoute>
+        ),
       },
       {
         path: "payment-history",
-        element: <PaymentHistory />,
+        element: (
+          <TaskCreatorPrivateRoute>
+            <PaymentHistory />
+          </TaskCreatorPrivateRoute>
+        ),
       },
 
       // For Worker Dashboard
       {
         path: "worker-home",
-        element: <WarkerHome />,
+        element: (
+          <WorkerPrivateRoute>
+            <WarkerHome />
+          </WorkerPrivateRoute>
+        ),
       },
       {
         path: "worker-tasklist",
-        element: <TaskList />,
+        element: (
+          <WorkerPrivateRoute>
+            <TaskList />
+          </WorkerPrivateRoute>
+        ),
       },
       {
         path: "my-submission",
-        element: <MySubmission />,
+        element: (
+          <WorkerPrivateRoute>
+            <MySubmission />
+          </WorkerPrivateRoute>
+        ),
       },
       {
         path: "details/:id",
-        element: <Details />,
+        element: (
+          <WorkerPrivateRoute>
+            <Details />
+          </WorkerPrivateRoute>
+        ),
         loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
       },
       {
         path: "withdrawal",
-        element: <MyWithdrawals />,
+        element: (
+          <WorkerPrivateRoute>
+            <MyWithdrawals />
+          </WorkerPrivateRoute>
+        ),
       },
     ],
   },
