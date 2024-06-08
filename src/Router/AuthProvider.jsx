@@ -8,6 +8,7 @@ import {
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
+import useAxiosPublic from "./../Hooks/useAxiosPublic";
 
 export const AuthContext = createContext(null);
 
@@ -16,6 +17,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true);
   const provider = new GoogleAuthProvider();
+  const axiosPublic = useAxiosPublic();
 
   const firebaseRegister = (email, password) => {
     setLoader(true);
@@ -39,11 +41,25 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoader(false);
+      if (currentUser) {
+        const userInfo = {
+          email: currentUser?.email,
+        };
+
+        axiosPublic.post("/jwt", userInfo).then((res) => {
+          if (res.data.token) {
+            localStorage.setItem("access-token", res.data.token);
+            setLoader(false);
+          }
+        });
+      } else {
+        localStorage.removeItem("access-token");
+        setLoader(false);
+      }
     });
 
     return () => unSubscribe();
-  }, []);
+  }, [axiosPublic]);
 
   const info = { user, firebaseRegister, firebaseLogin, loader, setLoader, googleLogin, logout };
   return <AuthContext.Provider value={info}>{children}</AuthContext.Provider>;

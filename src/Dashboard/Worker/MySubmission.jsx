@@ -28,7 +28,7 @@ const MySubmission = () => {
 
   console.log(getSubmission);
   return (
-    <section className="bg-">
+    <section className="pb-10 lg:pb-24 bg-customGray min-h-screen">
       <Helmet>
         <title>picopai | my submission</title>
       </Helmet>
@@ -59,7 +59,13 @@ const MySubmission = () => {
                 <td className="px-4 py-4 text-start text-sm text-gray-800">{submit.creator_email}</td>
                 <td className="px-4 py-4 text-center text-sm text-gray-800">{submit.payable}</td>
                 <td className=" text-center text-sm text-[#f7b101] font-bold">
-                  <span className="bg-[#e6dc21] px-6 py-2 rounded-full border border-[#f7b101] bg-opacity-20 ">{submit.status}</span>
+                  <span
+                    className={` ${submit.status === "approved" && "bg-green-600 text-white"} ${
+                      submit.status === "rejected" && "bg-red-600 text-white"
+                    } ${submit.status === "pending" && "bg-yellow-400 text-white"}  px-6 py-2 rounded-full border `}
+                  >
+                    {submit.status}
+                  </span>
                 </td>
               </tr>
             ))}

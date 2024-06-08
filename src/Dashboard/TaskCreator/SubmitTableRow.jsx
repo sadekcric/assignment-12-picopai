@@ -57,12 +57,12 @@ const SubmitTableRow = ({ submit }) => {
   const handleReject = (id) => {
     Swal.fire({
       title: "Are you sure?",
-      text: "Do You Want to Approve the Task?",
+      text: "Do You Want to Reject the Task?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, Approve it!",
+      confirmButtonText: "Yes, Reject it!",
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure

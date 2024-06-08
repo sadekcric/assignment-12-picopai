@@ -113,7 +113,7 @@ const router = createBrowserRouter([
             <Update />
           </TaskCreatorPrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
+        loader: ({ params }) => fetch(`https://picopai-server.vercel.app/tasks/${params.id}`),
       },
       {
         path: "purchase-coin",
@@ -172,7 +172,7 @@ const router = createBrowserRouter([
             <Details />
           </WorkerPrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
+        loader: ({ params }) => fetch(`https://picopai-server.vercel.app/tasks/${params.id}`),
       },
       {
         path: "withdrawal",

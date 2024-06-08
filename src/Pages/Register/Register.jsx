@@ -67,7 +67,7 @@ const Register = () => {
 
     // User Information
     const name = data.name;
-    const email = data.email;
+    const email = data.email.toLowerCase();
     const password = data.password;
     const role = data.role;
     const coin = data.role === "Worker" ? 10 : 50;
