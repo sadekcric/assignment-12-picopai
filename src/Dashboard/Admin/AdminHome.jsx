@@ -97,40 +97,48 @@ const AdminHome = () => {
       <div className="lg:w-4/5 mx-auto p-3 border-4 border-customPrimary bg-white my-10 py-10 px-5 lg:my-24 lg:p-5 rounded-lg">
         <h2 className="text-center text-4xl font-bold uppercase text-customPrimary mb-10">Withdraw Request</h2>
 
-        <table className="  w-full border  divide-y divide-gray-200 ">
-          <thead className="bg-customSecondary whitespace-nowrap">
-            <tr>
-              <th className="px-4 py-4 text-start text-xs font-semibold text-customPrimary uppercase tracking-wider ">Worker Name</th>
-              <th className="px-4 py-4 text-center  text-xs font-semibold text-customPrimary uppercase tracking-wider">Withdrawal Coin</th>
-              <th className="px-4 py-4 text-center text-xs font-semibold text-customPrimary uppercase tracking-wider">Withdrawal Amount</th>
-              <th className="px-4 py-4 text-center  text-xs font-semibold text-customPrimary uppercase tracking-wider">Account no</th>
-              <th className="px-4 py-4 text-center  text-xs font-semibold text-customPrimary uppercase tracking-wider">Payment Method</th>
-              <th className="px-4 py-4 text-center  text-xs font-semibold text-customPrimary uppercase tracking-wider">Withdrawal Time</th>
-              <th className="px-4 py-4 text-center  text-xs font-semibold text-customPrimary uppercase tracking-wider"></th>
-            </tr>
-          </thead>
-
-          <tbody className="bg-[#fff] divide-y divide-gray-200 whitespace-nowrap">
-            {allWithdraw.map((withdraw) => (
-              <tr key={withdraw._id} className="even:bg-gray-200">
-                <td className="px-4 py-4 text-start text-sm text-gray-800">{withdraw.worker_name}</td>
-                <td className="px-4 py-4 text-center text-sm text-gray-800">{withdraw.withdrawal_coin}</td>
-                <td className="px-4 py-4 text-center text-sm text-gray-800">{withdraw.withdrawal_dollar}</td>
-                <td className="px-4 py-4 text-center text-sm text-gray-800">{withdraw.account}</td>
-                <td className="px-4 py-4 text-center text-sm text-gray-800">{withdraw.method}</td>
-                <td className="px-4 py-4 text-center text-sm text-gray-800">{date(withdraw.withdraw_date)}</td>
-                <td className="px-4 py-4 text-center text-sm text-gray-800">
-                  <button
-                    onClick={() => handlePay(withdraw.worker_email, withdraw.withdrawal_coin)}
-                    className="font-semibold px-4 py-1 bg-green-600 text-white rounded-md"
-                  >
-                    pay
-                  </button>
-                </td>
+        <div className="overflow-x-auto">
+          <table className="  w-full border  divide-y divide-gray-200 ">
+            <thead className="bg-customSecondary whitespace-nowrap">
+              <tr>
+                <th className="px-4 py-4 text-start text-xs font-semibold text-customPrimary uppercase tracking-wider ">Worker Name</th>
+                <th className="px-4 py-4 text-center  text-xs font-semibold text-customPrimary uppercase tracking-wider">
+                  Withdrawal Coin
+                </th>
+                <th className="px-4 py-4 text-center text-xs font-semibold text-customPrimary uppercase tracking-wider">
+                  Withdrawal Amount
+                </th>
+                <th className="px-4 py-4 text-center  text-xs font-semibold text-customPrimary uppercase tracking-wider">Account no</th>
+                <th className="px-4 py-4 text-center  text-xs font-semibold text-customPrimary uppercase tracking-wider">Payment Method</th>
+                <th className="px-4 py-4 text-center  text-xs font-semibold text-customPrimary uppercase tracking-wider">
+                  Withdrawal Time
+                </th>
+                <th className="px-4 py-4 text-center  text-xs font-semibold text-customPrimary uppercase tracking-wider"></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody className="bg-[#fff] divide-y divide-gray-200 whitespace-nowrap">
+              {allWithdraw.map((withdraw) => (
+                <tr key={withdraw._id} className="even:bg-gray-200">
+                  <td className="px-4 py-4 text-start text-sm text-gray-800">{withdraw.worker_name}</td>
+                  <td className="px-4 py-4 text-center text-sm text-gray-800">{withdraw.withdrawal_coin}</td>
+                  <td className="px-4 py-4 text-center text-sm text-gray-800">{withdraw.withdrawal_dollar}</td>
+                  <td className="px-4 py-4 text-center text-sm text-gray-800">{withdraw.account}</td>
+                  <td className="px-4 py-4 text-center text-sm text-gray-800">{withdraw.method}</td>
+                  <td className="px-4 py-4 text-center text-sm text-gray-800">{date(withdraw.withdraw_date)}</td>
+                  <td className="px-4 py-4 text-center text-sm text-gray-800">
+                    <button
+                      onClick={() => handlePay(withdraw.worker_email, withdraw.withdrawal_coin)}
+                      className="font-semibold px-4 py-1 bg-green-600 text-white rounded-md"
+                    >
+                      pay
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );

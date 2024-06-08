@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import AdminLayout from "../Admin/AdminLayout";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../../CommonRoute/Footer/Footer";
@@ -7,10 +7,28 @@ import Worker from "../Worker/Worker";
 import useAuth from "../../Hooks/useAuth";
 import useGetRole from "../../Hooks/useGetRole";
 import { RiMenu5Fill } from "react-icons/ri";
+import { useEffect } from "react";
 
 const Dashboard = () => {
   const { user } = useAuth();
   const [role, isLoading] = useGetRole();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (role.length > 0) {
+      if (role === "Worker") {
+        navigate("/dashboard/worker-home");
+      }
+
+      if (role === "Task Creator") {
+        navigate("/dashboard/task-creator-home");
+      }
+
+      if (role === "Admin") {
+        navigate("/dashboard/admin-home");
+      }
+    }
+  }, [role, navigate]);
 
   if (isLoading) {
     return (

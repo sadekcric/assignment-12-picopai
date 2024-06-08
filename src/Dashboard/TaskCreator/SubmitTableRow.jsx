@@ -28,7 +28,7 @@ const SubmitTableRow = ({ submit }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure
-          .put(`/approve/${id}`, { status: "Approved", worker_email, payable })
+          .put(`/approve/${id}`, { status: "approved", worker_email, payable, title })
           .then((res) => {
             if (res.data) {
               refetch();
@@ -55,7 +55,41 @@ const SubmitTableRow = ({ submit }) => {
   };
 
   const handleReject = (id) => {
-    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do You Want to Approve the Task?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Approve it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure
+          .patch(`/reject/${id}`, { status: "rejected" })
+          .then((res) => {
+            if (res.data) {
+              refetch();
+              submitCollectionRefetch();
+              Swal.fire({
+                icon: "success",
+                text: `"${title}" Successfully Rejected!`,
+                title: "Reject!",
+                showConfirmButton: false,
+                timer: 3000,
+              });
+            }
+          })
+          .catch((err) => {
+            Swal.fire({
+              icon: "error",
+              title: err.message,
+              showConfirmButton: false,
+              timer: 3000,
+            });
+          });
+      }
+    });
   };
   return (
     <tr className="even:bg-gray-200">
