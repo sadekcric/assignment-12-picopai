@@ -6,6 +6,7 @@ import moment from "moment";
 import useAxiosSecure from "./../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import Countdown from "react-countdown";
 
 const Details = () => {
   const task = useLoaderData();
@@ -14,6 +15,13 @@ const Details = () => {
   const axiosSecure = useAxiosSecure();
 
   const { title, taskImage, submissionInfo, quantity, payable, email, details, creator, createTime, completionDate, _id } = task;
+
+  // React countDone Implementation
+  const currentDate = new Date();
+  const futureDate = new Date(task.completionDate);
+  const diffDate = futureDate - currentDate;
+
+  const completionTime = Date.now() + diffDate;
 
   const task_id = _id;
   const worker_email = user.email;
@@ -106,6 +114,13 @@ const Details = () => {
                 <div>
                   <h2 className="text-2xl font-extrabold text-[#333]">{title}</h2>
                   <p className="text-[#333] mt-1 font-semibold">Create: {dateFunc(createTime)}</p>
+                  <p className="text-[#333] mt-1 font-semibold">
+                    {/* React countdown */}
+                    <span>Completion Time: </span>
+                    <span className="text-red-500">
+                      <Countdown date={completionTime} />
+                    </span>
+                  </p>
                 </div>
 
                 <div className="mt-5 space-y-5">

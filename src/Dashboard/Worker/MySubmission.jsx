@@ -26,7 +26,6 @@ const MySubmission = () => {
     );
   }
 
-  console.log(getSubmission);
   return (
     <section className="pb-10 lg:pb-24 bg-customGray min-h-screen">
       <Helmet>

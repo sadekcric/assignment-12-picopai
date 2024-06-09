@@ -260,7 +260,11 @@ const MyWithdrawals = () => {
 
       {/* WithDrawals History */}
 
-      <div className="lg:w-4/5 lg:-translate-y-24 mx-auto bg-opacity-70 p-3 lg:p-5 bg-[#fff] rounded-2xl shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)] text-customPrimary ">
+      <div
+        className={`lg:w-4/5 ${
+          getWithdrawal.length ? "block" : "hidden"
+        } lg:-translate-y-24 mx-auto bg-opacity-70 p-3 lg:p-5 bg-[#fff] rounded-2xl shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)] text-customPrimary `}
+      >
         <div>
           <h3 className="text-2xl lg:text-4xl font-bold text-center">Payment History</h3>
         </div>

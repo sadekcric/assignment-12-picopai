@@ -48,11 +48,11 @@ const Login = () => {
         }
       })
 
-      .catch((err) => {
+      .catch(() => {
         setLoader(false);
         Swal.fire({
           icon: "error",
-          title: err.message,
+          title: "email and password not Matched!",
           showConfirmButton: false,
           timer: 3000,
         });
