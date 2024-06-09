@@ -28,7 +28,7 @@ const AdminHome = () => {
     );
   }
 
-  const { totalUser, totalCoin, totalPayment } = allTotal;
+  // const { totalUser, totalCoin, totalPayment } = allTotal;
 
   const handlePay = async (email, payCoin) => {
     try {
@@ -72,6 +72,8 @@ const AdminHome = () => {
     }
   };
 
+  console.log(allTotal);
+
   const info = {
     logo1: <FaUsers />,
     logo2: <RiSecurePaymentFill />,
@@ -81,9 +83,9 @@ const AdminHome = () => {
     title2: "Total Payments",
     title3: "Total Coin",
 
-    value1: totalUser,
-    value2: totalPayment,
-    value3: totalCoin,
+    value1: allTotal?.totalUser,
+    value2: allTotal?.totalPayment,
+    value3: allTotal?.totalCoin,
   };
 
   return (

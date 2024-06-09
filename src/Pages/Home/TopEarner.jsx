@@ -34,7 +34,10 @@ const TopEarner = () => {
 
               <div className="p-6">
                 <h3 className="text-lg font-bold text-center text-gray-800">{top.name}</h3>
-                <h4 className="text-lg text-gray-800 mt-6 text-center font-bold">${top.coin}</h4>
+                <div>
+                  <h4 className="text-lg text-gray-800 mt-6 text-center ">Complete Task: {top?.completionTask || 0}</h4>
+                  <h4 className="text-lg text-gray-800 mt-2 text-center ">Total Earning: ${top.coin}</h4>
+                </div>
               </div>
             </div>
           ))}
