@@ -265,7 +265,7 @@ const MyWithdrawals = () => {
           <h3 className="text-2xl lg:text-4xl font-bold text-center">Payment History</h3>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-10 overflow-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-customSecondary whitespace-nowrap">
               <tr>

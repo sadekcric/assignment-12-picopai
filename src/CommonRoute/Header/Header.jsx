@@ -6,6 +6,7 @@ import useAuth from "../../Hooks/useAuth";
 import { BsCashCoin } from "react-icons/bs";
 import coin from "../../assets/coin.png";
 import useGetUser from "./../../Hooks/useGetUser";
+import useGetCoin from "../../Hooks/useGetCoin";
 
 const Header = () => {
   const [active, setActive] = useState(false);
@@ -13,6 +14,7 @@ const Header = () => {
   const [availableCoin, setAvailableCoin] = useState(false);
   const navigate = useNavigate();
   const [role] = useGetUser();
+  const [coins] = useGetCoin();
 
   const userActiveLink = ({ isActive }) =>
     isActive
@@ -94,7 +96,7 @@ const Header = () => {
                       <span className="text-lg font-extrabold ">
                         <img src={coin} className="w-7" alt="" />
                       </span>
-                      <span className=" font-bold text-[#FEC638] ">1850</span>
+                      <span className=" font-bold text-[#FEC638] ">{coins}</span>
                     </button>
                   </li>
 

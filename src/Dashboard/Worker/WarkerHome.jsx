@@ -54,7 +54,7 @@ const WarkerHome = () => {
 
       {/* Table */}
 
-      <div className="  border-4 border-customPrimary px-5 lg:p-10 rounded-lg lg:w-4/5 mx-auto m-3 bg-white">
+      <div className="  lg:border-4 lg:border-customPrimary px-5 py-5 lg:p-10 rounded-lg lg:w-4/5 mx-auto m-3 bg-white">
         <h3 className="text-xl lg:text-3xl font-bold uppercase text-center pb-10">Task To Review</h3>
         <div className="overflow-x-auto">
           <table className=" w-full mx-auto border divide-y divide-gray-200">

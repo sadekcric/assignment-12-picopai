@@ -94,7 +94,7 @@ const AdminHome = () => {
 
       <HomeState info={info} />
 
-      <div className="lg:w-4/5 mx-auto p-3 border-4 border-customPrimary bg-white my-10 py-10 px-5 lg:my-24 lg:p-5 rounded-lg">
+      <div className="lg:w-4/5 mx-auto p-3 lg:border-4 lg:border-customPrimary bg-white my-10 py-10 px-5 lg:my-24 lg:p-5 rounded-lg">
         <h2 className="text-center text-4xl font-bold uppercase text-customPrimary mb-10">Withdraw Request</h2>
 
         <div className="overflow-x-auto">
