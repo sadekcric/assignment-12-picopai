@@ -1,9 +1,9 @@
 # Picopai
 
-**Admin Username:** `araf@gmail.com`  
-**Admin Password:** `B@ngladesh1`  
-**Live Site URL:** [https://picopai.web.app](https://picopai.web.app)
-**server Site URL:** [https://github.com/sadekcric/assignment-12-picopai-server-](https://github.com/sadekcric/assignment-12-picopai-server-)
+- **Admin Username:** `araf@gmail.com`  
+- **Admin Password:** `B@ngladesh1`  
+- **Live Site URL:** [https://picopai.web.app](https://picopai.web.app)
+- **server Site URL:** [https://github.com/sadekcric/assignment-12-picopai-server-](https://github.com/sadekcric/assignment-12-picopai-server-)
 
 ## Overview
 
